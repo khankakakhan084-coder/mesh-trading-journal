@@ -13,7 +13,7 @@ Sirf **`start_journal.bat`** file par double click karein!
 
 ### Tarika 2: Terminal / Command Prompt se
 ```bash
-npm install
+cd "c:\Users\khank\OneDrive\Documents\Adil Journal"
 npm start
 ```
 Uske baad browser mai open karein: **`http://localhost:3000`**
@@ -22,40 +22,53 @@ Uske baad browser mai open karein: **`http://localhost:3000`**
 
 ## 🎯 Features & Capabilities
 
-1. **Trade Entry Details**: Pair, Direction (Long/Short), R:R, Result, PnL, Notes
-2. **📸 Screenshot Attachment**: Drag & drop, click upload, or Ctrl+V clipboard paste
-3. **🎥 Video Recording**: Upload trade replays (MP4, WEBM, MOV) up to 1GB
-4. **💾 Single File Storage**: All trades saved in `data/trades.json`
-5. **📊 Live Analytics**: Win rate, equity curve, profit factor
-6. **☁️ Supabase Cloud Sync**: Row-level security, cross-device sync
+1. **Trade Entry Details**:
+   - **Pair**: e.g., `EURUSD`, `GBPUSD`, `XAUUSD (Gold)`, `BTCUSDT`, `NAS100` (Quick chip buttons included).
+   - **Direction**: `🟢 BUY / LONG` ya `🔴 SELL / SHORT`.
+   - **R:R (Risk to Reward)**: e.g., `1:2`, `1:3`, `1:4.5` (Auto calculates PnL multiples).
+   - **Result**: `🏆 WIN`, `❌ LOSS`, `⚖️ BREAK-EVEN`, `⏳ OPEN`.
+   - **PnL (R multiples)**: e.g., `+3.2R` or `-1.0R`.
+   - **Date, Time & Session**: London, New York, Asian, Frankfurt.
+   - **Confluence / Strategy**: e.g. Fair Value Gap (FVG), Liquidity Sweep, Order Block, Breakout.
+   - **Trade Notes & Mistakes**: Apni psychology aur analysis likhein.
+
+2. **📸 Screenshot Attachment**:
+   - Drag & drop ya click karke upload karein.
+   - **Direct Clipboard Paste (`Ctrl + V`)**: TradingView par `Alt + S` -> `Copy Image` karke seedha journal modal mai `Ctrl + V` dabayein, screenshot foran attach ho jayega!
+   - Fullscreen Zoom / Lightbox feature.
+
+3. **🎥 Video Recording Attachment**:
+   - Trade ki screen recording, execution clip ya replay video (MP4, WEBM, MOV) upload karein (up to 1GB).
+   - In-app built-in video player with play/pause, scrub, volume and fullscreen.
+
+4. **💾 Single File Storage ("ye sb ek file mai save hota rhai")**:
+   - Har trade, screenshot reference, video reference, notes, R:R aur result automatically **`data/trades.json`** file mai save hota rehta hai.
+   - **Export JSON**: Top bar se 1-click mai backup file download kar sakte hain.
+   - **Import JSON**: Agar kabhi backup restore karna ho ya dusri file load karni ho.
+
+5. **📊 Live Analytics & Equity Curve**:
+   - Live Win Rate %, Total Trades, Net R gained, Profit Factor.
+   - Interactive Cumulative Equity Curve (Chart.js) jo aapki trading progress visual chart mai dikhata hai.
+   - Grid View & Table View toggles.
+   - Filter by Pair, Direction (Long/Short), Result (Win/Loss), ya Media (Screenshot/Video).
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-mesh-trading-journal/
+Adil Journal/
 ├── data/
-│   └── trades.json          <-- All trades saved here
+│   └── trades.json          <-- AAPKI SAARI TRADES ISS SINGLE FILE MAI SAVE HOTI HAIN
 ├── uploads/
-│   ├── images/              <-- Trade screenshots
-│   └── videos/              <-- Trade videos
+│   ├── images/              <-- Uploaded trade screenshots
+│   └── videos/              <-- Uploaded trade videos
 ├── public/
-│   ├── index.html           <-- Landing page
-│   ├── app.html             <-- Main dashboard
-│   ├── app.js               <-- Dashboard logic
+│   ├── index.html           <-- Dark modern trading dashboard UI
 │   ├── style.css            <-- Styles & animations
-│   └── config.example.js    <-- Config template (copy to config.js)
-├── server.js                <-- Express server & API
-├── vercel.json              <-- Vercel deployment config
-├── start_journal.bat        <-- Double click to run locally
+│   └── app.js               <-- Dashboard logic & chart
+├── server.js                <-- Express server & API endpoints
+├── start_journal.bat        <-- Double click to run
 ├── package.json
 └── README.md
 ```
-
-## Setup
-
-1. Clone the repo
-2. Copy `public/config.example.js` to `public/config.js` and add your Supabase keys
-3. Run `npm install`
-4. Run `npm start`
