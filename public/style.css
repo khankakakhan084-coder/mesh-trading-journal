@@ -1,0 +1,698 @@
+/* Monokai Theme for Adil Trading Journal */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap');
+
+:root {
+  color-scheme: dark;
+  --bg-main: #272822;
+  --bg-card: #1e1f1c;
+  --border-color: #3e3d32;
+  --text-main: #F8F8F2;
+  --text-muted: #75715e;
+  --color-green: #a6e22e;
+  --color-pink: #f92672;
+  --color-cyan: #66d9ef;
+  --color-yellow: #e6db74;
+  --color-orange: #fd971f;
+  --color-purple: #ae81ff;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #272822 !important;
+  color: #F8F8F2 !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Logo Brand Styling matching Origami Stag Logo */
+.brand-logo-title {
+  font-family: 'Orbitron', 'Inter', sans-serif !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-mesh-text {
+  font-family: 'Orbitron', 'Inter', sans-serif !important;
+  font-weight: 900 !important;
+  color: #FFFFFF !important;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.25);
+}
+
+.brand-journal-text {
+  font-family: 'Orbitron', 'Inter', sans-serif !important;
+  font-weight: 800 !important;
+  color: #a6e22e !important;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  display: inline-block;
+  line-height: 1;
+  text-shadow: 0 0 18px rgba(166, 226, 46, 0.35);
+}
+
+/* Hide scrollbar for clean horizontal swipe on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Monokai Custom Scrollbars (Desktop) */
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #272822;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3e3d32;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #49483e;
+  }
+}
+
+/* Quick Chip Buttons in Monokai Style */
+.chip-btn {
+  padding: 4px 10px;
+  background-color: #2e2f28;
+  border: 1px solid #3e3d32;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  color: #F8F8F2;
+  transition: all 0.15s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.chip-btn:active,
+.chip-btn:hover {
+  background-color: #a6e22e;
+  border-color: #a6e22e;
+  color: #272822;
+}
+
+/* Monokai Card hover & entrance animation */
+.trade-card,
+.trade-strip-card {
+  background-color: #1e1f1c;
+  border: 1px solid #3e3d32;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  animation: cardFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.trade-card:active,
+.trade-strip-card:active {
+  transform: scale(0.99);
+}
+
+@media (hover: hover) {
+  .trade-card:hover,
+  .trade-strip-card:hover {
+    transform: translateY(-1.5px);
+    border-color: #a6e22e;
+    box-shadow: none;
+  }
+}
+
+/* Table row hover */
+.trade-row {
+  transition: background-color 0.15s ease;
+}
+
+.trade-row:hover {
+  background-color: #2e2f28;
+}
+
+/* Toast animations */
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.toast {
+  animation: slideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==================== SMOOTH DROPDOWNS & FLYOUT MENUS ==================== */
+
+/* Dropdown Menu Entrance */
+.cs-menu:not(.hidden),
+#pairPredictionsMenu:not(.hidden) {
+  animation: dropdownSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top center;
+  will-change: transform, opacity;
+}
+
+#userProfileDropdown:not(.hidden) {
+  animation: profileSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top left;
+  will-change: transform, opacity;
+}
+
+/* Dropdown Menu Exit (Closing Animation) */
+.cs-menu.dropdown-closing,
+#pairPredictionsMenu.dropdown-closing {
+  animation: dropdownSlideOut 0.13s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  pointer-events: none;
+}
+
+#userProfileDropdown.dropdown-closing {
+  animation: profileSlideOut 0.14s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  pointer-events: none;
+}
+
+@keyframes dropdownSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dropdownSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+}
+
+@keyframes profileSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes profileSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+  }
+}
+
+/* Caret icon smooth 180 rotation */
+.cs-trigger svg,
+#profileDropdownCaret {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+}
+
+/* Trigger button active & hover micro-interactions */
+.cs-trigger {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+.cs-trigger:hover {
+  border-color: rgba(166, 226, 46, 0.7) !important;
+  box-shadow: 0 0 10px -2px rgba(166, 226, 46, 0.15);
+}
+.cs-trigger:active {
+  transform: scale(0.97);
+}
+
+/* Option item hover micro-motion */
+.cs-option {
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.cs-option:hover {
+  transform: translateX(3px);
+}
+.cs-option:active {
+  transform: scale(0.98);
+}
+
+/* User profile dropdown list items */
+#userProfileDropdown button:not(#copyUidBtn),
+#userProfileDropdown a {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, color 0.15s ease !important;
+}
+#userProfileDropdown button:not(#copyUidBtn):hover,
+#userProfileDropdown a:hover {
+  transform: translateX(4px);
+}
+#userProfileDropdown button:active,
+#userProfileDropdown a:active {
+  transform: scale(0.97);
+}
+
+/* Copy UID button micro-animation */
+#copyUidBtn {
+  transition: transform 0.15s ease, color 0.15s ease !important;
+}
+#copyUidBtn:active {
+  transform: scale(0.88);
+}
+
+/* Quick Chip Buttons micro-animation */
+.chip-btn {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease !important;
+}
+.chip-btn:hover {
+  transform: translateY(-1px);
+}
+.chip-btn:active {
+  transform: scale(0.93);
+}
+
+/* Slider Left/Right nav buttons */
+.slider-nav-btn {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), color 0.15s ease !important;
+}
+.slider-nav-btn:hover {
+  color: #a6e22e !important;
+  transform: scale(1.15);
+}
+.slider-nav-btn:active {
+  transform: scale(0.85);
+}
+
+/* Stat Cards hover micro-elevation */
+.stat-card {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, box-shadow 0.22s ease !important;
+}
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(166, 226, 46, 0.4) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+}
+
+/* View Mode Toggles (Grid vs Table) */
+#viewGridBtn, #viewTableBtn {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, color 0.15s ease !important;
+}
+#viewGridBtn:active, #viewTableBtn:active {
+  transform: scale(0.9);
+}
+
+/* Direction Radio Buttons (BUY / SELL) */
+.direction-radio {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.15s ease, background-color 0.15s ease !important;
+}
+.direction-radio:hover {
+  transform: translateY(-1px);
+}
+.direction-radio:active {
+  transform: scale(0.96);
+}
+
+/* Search bar focus micro-transition */
+#searchInput {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease !important;
+}
+#searchInput:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px rgba(166, 226, 46, 0.2);
+}
+
+/* Form input elements smooth transitions */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease !important;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #a6e22e !important;
+  box-shadow: 0 0 0 1px rgba(166, 226, 46, 0.3) !important;
+}
+
+/* ==================== SMOOTH MODERN MODAL ANIMATIONS ==================== */
+#tradeModal:not(.hidden),
+#detailModal:not(.hidden),
+#importModal:not(.hidden) {
+  animation: modalBackdropFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#tradeModal:not(.hidden) > div,
+#detailModal:not(.hidden) > div,
+#importModal:not(.hidden) > div {
+  animation: modalDialogScaleIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+#lightboxModal:not(.hidden) {
+  animation: modalBackdropFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+#lightboxModal:not(.hidden) #lightboxImg {
+  animation: modalDialogScaleIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Mobile Bottom Sheet Slide-Up */
+@media (max-width: 639px) {
+  #tradeModal:not(.hidden) > div,
+  #detailModal:not(.hidden) > div {
+    animation: modalSheetSlideUp 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transform-origin: bottom center;
+  }
+}
+
+/* Modal Exit Animations */
+.modal-closing {
+  animation: modalBackdropFadeOut 0.16s ease-out forwards !important;
+  pointer-events: none;
+}
+
+.modal-closing > div {
+  animation: modalDialogScaleOut 0.16s ease-in forwards !important;
+}
+
+.modal-closing#lightboxModal #lightboxImg {
+  animation: modalDialogScaleOut 0.15s ease-in forwards !important;
+}
+
+@media (max-width: 639px) {
+  .modal-closing#tradeModal > div,
+  .modal-closing#detailModal > div {
+    animation: modalSheetSlideDown 0.18s cubic-bezier(0.4, 0, 1, 1) forwards !important;
+  }
+}
+
+@keyframes modalBackdropFadeIn {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes modalBackdropFadeOut {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+}
+
+@keyframes modalDialogScaleIn {
+  0% {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalDialogScaleOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+}
+
+@keyframes modalSheetSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalSheetSlideDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+}
+
+/* Prevent iOS Safari auto-zoom on form inputs */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Safe area padding for iPhones with Home Indicator / Notch */
+.pb-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
+
+/* Monokai Cyber Hexagon / Pointed Banner CTA Button */
+.btn-hexagon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: none;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hexagon-wrapper:hover {
+  filter: none;
+  transform: translateY(-1px);
+}
+
+.btn-hexagon-wrapper:active {
+  transform: scale(0.96);
+}
+
+.btn-hexagon-border {
+  background-color: #000000;
+  padding: 3px;
+  clip-path: polygon(26px 0%, calc(100% - 26px) 0%, 100% 50%, calc(100% - 26px) 100%, 26px 100%, 0% 50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-hexagon-inner {
+  background-color: #a6e22e;
+  color: #272822;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  height: 38px;
+  width: 270px;
+  max-width: 100%;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(24px 0%, calc(100% - 24px) 0%, 100% 50%, calc(100% - 24px) 100%, 24px 100%, 0% 50%);
+  transition: background-color 0.15s ease, color 0.15s ease;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn-hexagon-inner:hover {
+  background-color: #b8f041;
+}
+
+/* ==================== NATIVE MOBILE APP UX & STYLING (MOBILE ONLY) ==================== */
+@media (max-width: 639px) {
+  /* Ensure smooth momentum scrolling & native feel */
+  html, body {
+    -webkit-font-smoothing: antialiased;
+    overflow-y: auto !important;
+    touch-action: pan-y !important;
+  }
+
+  /* Safe area top padding for sticky header on notched phones */
+  header.sticky {
+    padding-top: max(0.25rem, env(safe-area-inset-top));
+  }
+
+  /* Native Mobile Bottom Navigation Bar */
+  .mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 45;
+    background: rgba(30, 31, 28, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid #3e3d32;
+    border-left: 1px solid #3e3d32;
+    border-right: 1px solid #3e3d32;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    padding-top: 0.45rem;
+    box-shadow: 0 -6px 28px rgba(0, 0, 0, 0.6);
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    color: #75715e;
+    padding: 6px 0;
+    transition: color 0.15s ease, transform 0.1s ease;
+    cursor: pointer;
+    background: none;
+    border: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .mobile-nav-item:active {
+    transform: scale(0.88);
+  }
+
+  .mobile-nav-item.active {
+    color: #a6e22e;
+  }
+
+  .mobile-nav-fab {
+    position: relative;
+    top: -14px;
+    width: 56px;
+    height: 56px;
+    border-radius: 9999px;
+    background: #a6e22e;
+    color: #272822;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none !important;
+    filter: none !important;
+    border: 3.5px solid #272822;
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  .mobile-nav-fab:active {
+    transform: scale(0.92);
+    background: #b8f041;
+  }
+
+  /* Bottom sheet drag handle */
+  .sheet-handle {
+    width: 36px;
+    height: 4px;
+    background-color: #49483e;
+    border-radius: 9999px;
+    margin: 8px auto 4px auto;
+  }
+
+  /* Bottom sheet modal styling on mobile */
+  #tradeModal > div,
+  #detailModal > div {
+    border-top-left-radius: 26px !important;
+    border-top-right-radius: 26px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.75);
+    max-height: 90dvh !important;
+  }
+
+  /* Native touch feedback on mobile trade items & cards */
+  .trade-strip-card:active {
+    transform: scale(0.985);
+    background-color: #252621 !important;
+  }
+
+  .trade-card:active {
+    transform: scale(0.985);
+  }
+
+  .stat-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Ensure completely flat buttons with zero aura or glowing box-shadow */
+#profileSaveTopBtn,
+#profileSaveBottomBtn,
+#saveBtn,
+.mobile-nav-fab {
+  box-shadow: none !important;
+  filter: none !important;
+  text-shadow: none !important;
+}

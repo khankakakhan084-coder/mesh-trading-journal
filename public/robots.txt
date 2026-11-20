@@ -1,0 +1,6 @@
+# Robots.txt for Mesh Trading Journal
+User-agent: *
+Allow: /
+
+Sitemap: https://adil-trading-journal.vercel.app/sitemap.xml
+Host: https://adil-trading-journal.vercel.app
