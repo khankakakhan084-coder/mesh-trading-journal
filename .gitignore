@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env*
+
+# Config with API keys (use config.example.js as template)
+public/config.js
+
+# Vercel
+.vercel/
+
+# Uploaded media (user data, not source code)
+uploads/
+
+# Local data files
+data/trades.json
+
+# Debug files
+mask_debug.png
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,23 @@
+{
+  "name": "mesh-trading-journal",
+  "version": "1.0.0",
+  "description": "Mesh Trading Journal - Complete Trade Logger with Screenshot, Video and JSON File Storage",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "trading",
+    "journal",
+    "crypto",
+    "forex",
+    "stocks"
+  ],
+  "author": "Mesh",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1"
+  }
+}
