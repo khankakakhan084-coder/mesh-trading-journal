@@ -1,1 +1,1409 @@
-File content will be read from disk and pushed
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#272822" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Mesh Trading Journal" />
+  <meta name="application-name" content="Mesh Trading Journal" />
+  <meta name="site_name" content="Mesh Trading Journal" />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="manifest" href="/manifest.json?v=5.0" />
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>Mesh Trading Journal</title>
+  <meta name="title" content="Mesh Trading Journal" />
+  <meta name="description" content="Mesh Trading Journal is the ultimate free trading journal for Crypto, Forex, and Stock traders. Calculate R-multiples, analyze win rates, log trades with chart screenshots, and sync securely with the cloud." />
+  <meta name="keywords" content="Mesh Trading Journal, Mesh Journal, trading journal, forex trading journal, crypto trading journal, free trading journal, trade tracker, risk reward calculator, trading log, R multiples, win rate tracker, stock trading journal, trading journal online, best trading journal 2026, Mesh trade tracker" />
+  <meta name="author" content="Mesh" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://adil-trading-journal.vercel.app/" />
+
+  <!-- Google Search Console Ownership Verification -->
+  <meta name="google-site-verification" content="eeDyE3kRGeHYgGVza92phw8yIrmgEQi6o4EumCZp6Wc" />
+
+  <!-- Open Graph / Facebook / WhatsApp SEO -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://adil-trading-journal.vercel.app/" />
+  <meta property="og:site_name" content="Mesh Trading Journal" />
+  <meta property="og:title" content="Mesh Trading Journal" />
+  <meta property="og:description" content="The premier free trading journal for Forex, Crypto, and Stocks. Auto-calculate R-multiples, track win rate, attach charts, and sync across devices." />
+  <meta property="og:image" content="https://adil-trading-journal.vercel.app/logo.png" />
+  <meta property="og:image:alt" content="Mesh Trading Journal Logo" />
+
+  <!-- Twitter Card SEO -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://adil-trading-journal.vercel.app/" />
+  <meta name="twitter:title" content="Mesh Trading Journal" />
+  <meta name="twitter:description" content="Track your trading edge with Mesh Trading Journal. Real-time R:R calculation, win rate, and media attachments." />
+  <meta name="twitter:image" content="https://adil-trading-journal.vercel.app/logo.png" />
+
+  <!-- Primary Dedicated WebSite Schema for Google Search Site Name -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Mesh Trading Journal",
+    "alternateName": [
+      "Mesh Journal",
+      "Mesh Trading",
+      "Mesh",
+      "Adil Trading Journal"
+    ],
+    "url": "https://adil-trading-journal.vercel.app/"
+  }
+  </script>
+
+  <!-- Structured Data (JSON-LD) for Google Search Ranking -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://adil-trading-journal.vercel.app/#webapp",
+        "name": "Mesh Trading Journal",
+        "alternateName": ["Mesh Journal", "Mesh Trade Tracker", "Mesh Trading Log"],
+        "url": "https://adil-trading-journal.vercel.app/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "description": "Professional free web-based trading journal designed for crypto, forex, and stock market traders to record, review, and analyze trade performance with auto-calculated R:R multiples, win rates, and chart media uploads.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Auto-calculate R:R Risk-to-Reward and R-multiples",
+          "Forex, Crypto, Stocks, and Indices trade tracking",
+          "Win Rate and Profit Factor analytics",
+          "Equity growth curve visualization",
+          "Clipboard paste and drag-and-drop screenshot uploads",
+          "Video screen recording attachments",
+          "Secure Supabase Cloud synchronization",
+          "JSON Trade Export and Import"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://adil-trading-journal.vercel.app/#website",
+        "url": "https://adil-trading-journal.vercel.app/",
+        "name": "Mesh Trading Journal",
+        "description": "Free Crypto, Forex & Stock Trade Logger and Performance Analytics.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Mesh Trading Journal",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://adil-trading-journal.vercel.app/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://adil-trading-journal.vercel.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Mesh Trading Journal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mesh Trading Journal is a free, high-performance web-based trade logging and analytics platform built for Forex, Cryptocurrency, and Stock traders to track trades, calculate R-multiples, and improve trading psychology."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Mesh Trading Journal free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Mesh Trading Journal is 100% free with unlimited trade entries, real-time analytics, and secure cloud synchronization."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Mesh Trading Journal calculate Risk to Reward (R:R)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mesh Trading Journal automatically calculates your Risk to Reward ratio and net R multiple based on your entry price, stop loss, and exit price for both Long and Short positions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What markets does Mesh Trading Journal support?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mesh Trading Journal supports all major financial markets including Forex currency pairs, Cryptocurrencies, Equities/Stocks, Commodities, and Index CFDs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I attach chart screenshots and videos to my trades in Mesh Journal?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, you can directly paste screenshots from your clipboard (Ctrl+V) or drag and drop chart images and screen recording videos into your trade logs."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          screens: {
+            xs: '420px',
+          },
+          colors: {
+            monoBg: '#272822',
+            monoCard: '#1e1f1c',
+            monoCardElevated: '#2e2f28',
+            monoBorder: '#3e3d32',
+            monoBorderLight: '#49483e',
+            monoFg: '#F8F8F2',
+            monoMuted: '#75715e',
+            monoGreen: '#a6e22e',
+            monoPink: '#f92672',
+            monoCyan: '#66d9ef',
+            monoYellow: '#e6db74',
+            monoOrange: '#fd971f',
+            monoPurple: '#ae81ff',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter, JetBrains Mono & Orbitron (Logo Style) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Site Name for Google Search & Browsers -->
+  <meta name="site_name" content="Mesh Trading Journal" />
+  <meta name="application-name" content="Mesh Trading Journal" />
+  <meta name="apple-mobile-web-app-title" content="Mesh Trading Journal" />
+
+  <!-- Favicon (Google Search Compliant: 48px Multiples & Root .ico) -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5.0">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5.0">
+  <link rel="manifest" href="/manifest.json?v=5.0">
+
+  <!-- Chart.js for Equity Curve -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Supabase Client SDK with automatic unpkg fallback -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    if (!window.supabase) {
+      document.write('<script src="https://unpkg.com/@supabase/supabase-js@2"><\/script>');
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css?v=4.9" />
+</head>
+<body class="bg-monoBg text-monoFg font-sans min-h-screen flex flex-col antialiased selection:bg-monoPink selection:text-white">
+
+  <!-- ==================== MONOKAI LOGIN / SIGNUP SCREEN ==================== -->
+  <div id="authScreen" class="hidden fixed inset-0 z-50 bg-monoBg flex items-center justify-center p-4">
+    <div class="bg-monoCard border border-monoBorder w-full max-w-md rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+      
+      <!-- Brand Header -->
+      <div class="text-center mb-6">
+        <img
+          src="/logo.png"
+          alt="Mesh Trading Journal Logo"
+          class="h-20 w-auto mx-auto object-contain mb-3 drop-shadow"
+        />
+        <h1 class="text-xl font-bold font-mono text-monoFg">
+          MESH <span class="text-monoGreen font-extrabold">TRADING JOURNAL</span>
+        </h1>
+      </div>
+
+      <!-- Auth Error / Success Alert -->
+      <div id="authAlert" class="hidden mb-4 p-3 rounded-xl text-xs font-mono border"></div>
+
+      <!-- CONTINUE WITH GOOGLE -->
+      <button
+        type="button"
+        id="googleAuthBtn"
+        onclick="signInWithGoogle()"
+        class="w-full py-2.5 px-4 mb-4 rounded-xl font-bold font-mono text-xs text-white bg-monoCardElevated hover:bg-[#3e3d32] border border-monoBorder transition flex items-center justify-center space-x-2.5 cursor-pointer shadow-sm active:scale-[0.98]"
+      >
+        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Continue with Google</span>
+      </button>
+
+      <!-- DIVIDER -->
+      <div class="relative flex items-center justify-center mb-4">
+        <div class="border-t border-monoBorder w-full"></div>
+        <span class="bg-monoCard px-2 text-[10px] font-mono text-monoMuted uppercase">or</span>
+        <div class="border-t border-monoBorder w-full"></div>
+      </div>
+
+      <!-- GMAIL / EMAIL & PASSWORD FORM (No Username) -->
+      <form id="emailAuthForm" onsubmit="handleEmailAuth(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-monoFg mb-1 font-mono">Gmail</label>
+          <input
+            type="email"
+            id="authEmail"
+            required
+            autocomplete="email"
+            placeholder="you@gmail.com"
+            class="w-full px-3.5 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-xs font-mono text-monoFg placeholder-monoMuted focus:outline-none focus:border-monoGreen focus:ring-1 focus:ring-monoGreen"
+          />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-monoFg mb-1 font-mono">Password</label>
+          <input
+            type="password"
+            id="authPassword"
+            required
+            minlength="6"
+            autocomplete="current-password"
+            placeholder="••••••••"
+            class="w-full px-3.5 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-xs font-mono text-monoFg placeholder-monoMuted focus:outline-none focus:border-monoGreen focus:ring-1 focus:ring-monoGreen"
+          />
+        </div>
+
+        <button
+          type="submit"
+          id="authSubmitBtn"
+          class="w-full py-2.5 rounded-xl font-bold font-mono text-xs text-[#272822] bg-monoGreen hover:bg-[#b8f041] shadow-lg shadow-monoGreen/20 transition flex items-center justify-center cursor-pointer"
+        >
+          <span id="authSubmitText">Sign In</span>
+          <svg id="authSpinner" class="hidden animate-spin ml-2 h-4 w-4 text-[#272822]" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Toggle Sign In / Sign Up (White text, No brackets) -->
+      <div class="mt-4 text-center space-y-2">
+        <button
+          type="button"
+          onclick="toggleAuthMode()"
+          id="authModeToggleBtn"
+          class="text-xs font-mono text-white hover:text-monoGreen hover:underline font-semibold transition cursor-pointer"
+        >
+          Don't have an account? Sign Up
+        </button>
+        <div>
+          <a href="/" class="text-[11px] font-mono text-monoMuted hover:text-monoGreen transition">
+            &larr; Back to Home
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOP NAVIGATION BAR (MONOKAI - Clean Profile & Brand) -->
+  <header class="sticky top-0 z-30 bg-monoBg/95 backdrop-blur-md border-b border-black">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center sm:items-start pt-0 sm:pt-4 justify-between gap-2 relative">
+      
+      <!-- Brand & Profile Area -->
+      <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+        
+        <!-- Interactive Profile Button / Logo -->
+        <button
+          type="button"
+          id="brandProfileBtn"
+          onclick="handleBrandAvatarClick(event)"
+          class="flex items-center focus:outline-none group cursor-pointer shrink-0"
+          title="Profile Settings & DP"
+        >
+          <!-- Default Stag Logo (When logged out) -->
+          <img
+            id="brandStagLogo"
+            src="/logo.png"
+            alt="Mesh Trading Journal Logo"
+            class="h-7 sm:h-9 w-auto object-contain drop-shadow transition group-hover:scale-105"
+          />
+
+          <!-- User Profile Avatar (When logged in replaces logo) -->
+          <div id="brandUserAvatarWrapper" class="hidden shrink-0">
+            <!-- Dynamically injected Google Avatar <img> or initial badge -->
+          </div>
+        </button>
+
+        <!-- Dynamic Brand Title: [USER FIRST NAME] JOURNAL -->
+        <button
+          type="button"
+          id="brandTitleBtn"
+          onclick="toggleProfileDropdown(event)"
+          class="flex items-center focus:outline-none text-left min-w-0 cursor-pointer group"
+          title="Toggle Profile Menu"
+        >
+          <h1 class="text-sm sm:text-lg font-bold tracking-tight text-monoFg flex items-center font-mono truncate">
+            <span id="brandFirstName">ADIL</span>
+            <span class="text-monoGreen ml-1 sm:ml-1.5 font-extrabold">JOURNAL</span>
+          </h1>
+          <svg id="profileDropdownCaret" class="hidden w-3 h-3 sm:w-3.5 sm:h-3.5 text-monoMuted ml-1.5 transition-transform duration-200 group-hover:text-monoGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- USER PROFILE DROPDOWN MENU -->
+      <div
+        id="userProfileDropdown"
+        class="hidden absolute top-14 sm:top-18 left-3 sm:left-6 z-[60] w-72 sm:w-80 max-w-[calc(100vw-1.5rem)] bg-monoCard border border-monoBorder rounded-2xl shadow-2xl p-4 backdrop-blur-md"
+      >
+        <!-- User Info Header (Click to Open Profile Settings) -->
+        <div
+          onclick="openProfileView(); closeProfileDropdown();"
+          class="flex items-center space-x-3 pb-3 border-b border-monoBorder cursor-pointer hover:bg-monoCardElevated -mx-2 px-2 py-1.5 rounded-xl transition"
+          title="Click to Open Profile Settings"
+        >
+          <div id="dropdownAvatarEl" class="shrink-0">
+            <!-- Dynamic Avatar -->
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 id="dropdownDisplayName" class="text-sm font-bold text-monoFg font-mono truncate">Trader</h3>
+            <p id="dropdownEmail" class="text-xs text-monoMuted font-mono truncate">user@gmail.com</p>
+          </div>
+        </div>
+
+        <!-- Unique UID Field -->
+        <div class="mt-3">
+          <label class="block text-[10px] font-semibold text-monoMuted uppercase tracking-wider mb-1 font-mono">UID</label>
+          <div class="relative flex items-center">
+            <div id="dropdownUidDisplay" class="w-full pl-3 pr-8 py-2 bg-monoBg border border-monoBorder rounded-xl text-xs font-mono text-monoFg select-all truncate">
+              -
+            </div>
+            <button
+              type="button"
+              onclick="copyUserIdToClipboard()"
+              id="copyUidBtn"
+              class="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 text-monoMuted hover:text-white transition-colors cursor-pointer rounded-lg"
+              title="Copy UID"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu Actions List -->
+        <div class="mt-3 space-y-1 font-mono text-xs">
+          <!-- Edit Profile (Full Screen Window) -->
+          <button
+            type="button"
+            onclick="openProfileView(); closeProfileDropdown();"
+            class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl text-monoFg hover:bg-monoCardElevated transition text-left cursor-pointer"
+          >
+            <svg class="w-4 h-4 text-monoCyan shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+            <span>Edit Profile</span>
+          </button>
+
+          <!-- Import Trades JSON -->
+          <button
+            type="button"
+            onclick="openImportModal(); closeProfileDropdown();"
+            class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl text-monoFg hover:bg-monoCardElevated transition text-left cursor-pointer"
+          >
+            <svg class="w-4 h-4 text-monoYellow shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12" />
+            </svg>
+            <span>Import Trades (JSON)</span>
+          </button>
+
+          <!-- Export Trades JSON -->
+          <button
+            type="button"
+            onclick="exportTradesJSON(); closeProfileDropdown();"
+            class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl text-monoFg hover:bg-monoCardElevated transition text-left cursor-pointer"
+          >
+            <svg class="w-4 h-4 text-monoGreen shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>Export Trades (JSON)</span>
+          </button>
+
+          <div class="border-t border-monoBorder my-1"></div>
+
+          <!-- Sign Out -->
+          <button
+            type="button"
+            onclick="handleSignOut(); closeProfileDropdown();"
+            class="w-full flex items-center space-x-2.5 px-3 py-2 rounded-xl text-monoPink hover:bg-monoPink/10 transition text-left cursor-pointer font-semibold"
+          >
+            <svg class="w-4 h-4 text-monoPink shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+            <span>Logout</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- BORDER-LINE POINTED HEXAGON LOG TRADE CTA (Hidden on Mobile; Centered ON the Borderline in PC Mode) -->
+  <div class="hidden sm:flex justify-center relative z-40 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 w-full -translate-y-1/2 -mb-5 sm:-mb-6">
+    <div class="btn-hexagon-wrapper">
+      <div class="btn-hexagon-border">
+        <button
+          onclick="openNewTradeModal()"
+          class="btn-hexagon-inner"
+          title="Log New Trade"
+        >
+          <svg class="w-4 h-4 stroke-[2.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+          </svg>
+          <span>Log Trade</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER (Mobile Responsive) -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 pt-3 sm:pt-4 space-y-4 sm:space-y-6 pb-28 sm:pb-8">
+
+    <!-- KPI STATS CARDS (Monokai Palette - Clean Minimalist) -->
+    <section class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+      
+      <!-- Total Trades -->
+      <div class="stat-card cursor-default bg-monoCard border border-monoBorder rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm relative overflow-hidden">
+        <div class="text-monoMuted text-[10px] sm:text-xs font-semibold mb-1 font-mono">
+          TOTAL TRADES
+        </div>
+        <div class="text-xl sm:text-3xl font-bold font-mono text-monoFg" id="statTotalTrades">0</div>
+      </div>
+
+      <!-- Win Rate -->
+      <div class="stat-card cursor-default bg-monoCard border border-monoBorder rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm relative overflow-hidden">
+        <div class="text-monoMuted text-[10px] sm:text-xs font-semibold mb-1 font-mono">
+          WIN RATE
+        </div>
+        <div class="text-xl sm:text-3xl font-bold font-mono text-monoGreen" id="statWinRate">0.0%</div>
+      </div>
+
+      <!-- Net PnL (Total R) -->
+      <div class="stat-card cursor-default bg-monoCard border border-monoBorder rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm relative overflow-hidden">
+        <div class="text-monoMuted text-[10px] sm:text-xs font-semibold mb-1 font-mono">
+          NET RESULT (R)
+        </div>
+        <div class="text-xl sm:text-3xl font-bold font-mono text-monoFg" id="statTotalR">+0.0R</div>
+      </div>
+
+      <!-- Profit Factor -->
+      <div class="stat-card cursor-default bg-monoCard border border-monoBorder rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-sm relative overflow-hidden">
+        <div class="text-monoMuted text-[10px] sm:text-xs font-semibold mb-1 font-mono">
+          PROFIT FACTOR
+        </div>
+        <div class="text-xl sm:text-3xl font-bold font-mono text-monoOrange" id="statProfitFactor">0.00</div>
+      </div>
+
+    </section>
+
+    <!-- EQUITY CURVE GRAPH -->
+    <section id="equityChartSection" class="bg-monoCard border border-monoBorder rounded-xl sm:rounded-2xl p-3.5 sm:p-5 shadow-sm">
+      <div class="flex items-center justify-between mb-3 sm:mb-4">
+        <div class="flex items-center space-x-2">
+          <h2 class="text-xs sm:text-sm font-bold text-monoFg tracking-wide uppercase font-mono">Equity Growth Curve</h2>
+        </div>
+        <!-- (2 W • 4 L • 0 BE) badge placed on Equity Graph header -->
+        <div class="text-[10px] sm:text-xs text-monoMuted flex items-center space-x-1.5 sm:space-x-2 font-mono bg-monoBg/60 px-2.5 py-1 rounded-lg border border-monoBorder">
+          <span class="text-monoGreen font-semibold"><span id="statWins">0</span> W</span>
+          <span>•</span>
+          <span class="text-monoPink font-semibold"><span id="statLosses">0</span> L</span>
+          <span>•</span>
+          <span class="text-monoYellow font-semibold"><span id="statBE">0</span> BE</span>
+        </div>
+      </div>
+      <div class="w-full h-44 sm:h-60 md:h-72 relative">
+        <canvas id="equityChart"></canvas>
+      </div>
+    </section>
+
+    <!-- CONTROLS & FILTER BAR (Search Bar above Filters) -->
+    <section class="relative z-30 bg-monoCard border border-monoBorder p-2.5 sm:p-3 rounded-xl sm:rounded-2xl space-y-2.5">
+      
+      <!-- Row 1: Search Input (Full Width on Top) -->
+      <div class="relative w-full">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <svg class="w-4 h-4 text-monoMuted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by Pair (e.g. EURUSD, GOLD, BTC) or Notes..."
+          class="w-full pl-9 pr-4 py-2 sm:py-2.5 bg-monoBg border border-monoBorder rounded-xl text-xs sm:text-sm text-monoFg placeholder-monoMuted focus:outline-none focus:border-monoGreen focus:ring-1 focus:ring-monoGreen transition font-mono"
+          oninput="applyFilters()"
+        />
+      </div>
+
+      <!-- Row 2: Filters Row (All Results, All Directions, All Media) -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar flex-nowrap w-full py-0.5">
+        <!-- Result Filter (Custom Monokai Dropdown) -->
+        <select id="filterResult" onchange="applyFilters()" class="hidden">
+          <option value="ALL">All Results</option>
+          <option value="WIN">Wins Only</option>
+          <option value="LOSS">Losses Only</option>
+          <option value="BREAKEVEN">Break-Even</option>
+        </select>
+        <div class="custom-select shrink-0 relative" data-for="filterResult">
+          <button type="button" class="cs-trigger flex items-center justify-between gap-2 bg-monoBg border border-monoBorder rounded-xl px-3 py-1.5 sm:py-2 text-xs text-monoFg font-mono hover:border-monoGreen transition cursor-pointer whitespace-nowrap min-w-[125px]">
+            <span class="cs-label">All Results</span>
+            <svg class="w-3.5 h-3.5 text-monoMuted shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="cs-menu hidden absolute top-full right-0 sm:left-0 sm:right-auto mt-1.5 w-44 bg-[#1e1f1c] border border-monoBorder rounded-xl shadow-2xl py-1 z-[70] overflow-hidden backdrop-blur-md">
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="ALL">
+              <span>All Results</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="WIN">
+              <span>Wins Only</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="LOSS">
+              <span>Losses Only</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="BREAKEVEN">
+              <span>Break-Even</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Direction Filter (Custom Monokai Dropdown) -->
+        <select id="filterDirection" onchange="applyFilters()" class="hidden">
+          <option value="ALL">All Directions</option>
+          <option value="LONG">BUY</option>
+          <option value="SHORT">SELL</option>
+        </select>
+        <div class="custom-select shrink-0 relative" data-for="filterDirection">
+          <button type="button" class="cs-trigger flex items-center justify-between gap-2 bg-monoBg border border-monoBorder rounded-xl px-3 py-1.5 sm:py-2 text-xs text-monoFg font-mono hover:border-monoGreen transition cursor-pointer whitespace-nowrap min-w-[130px]">
+            <span class="cs-label">All Directions</span>
+            <svg class="w-3.5 h-3.5 text-monoMuted shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="cs-menu hidden absolute top-full right-0 sm:left-0 sm:right-auto mt-1.5 w-44 bg-[#1e1f1c] border border-monoBorder rounded-xl shadow-2xl py-1 z-[70] overflow-hidden backdrop-blur-md">
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="ALL">
+              <span>All Directions</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="LONG">
+              <span>BUY</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="SHORT">
+              <span>SELL</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Media Filter (Custom Monokai Dropdown) -->
+        <select id="filterMedia" onchange="applyFilters()" class="hidden">
+          <option value="ALL">All Media</option>
+          <option value="HAS_SCREENSHOT">Has Screenshot</option>
+          <option value="HAS_VIDEO">Has Video</option>
+        </select>
+        <div class="custom-select shrink-0 relative" data-for="filterMedia">
+          <button type="button" class="cs-trigger flex items-center justify-between gap-2 bg-monoBg border border-monoBorder rounded-xl px-3 py-1.5 sm:py-2 text-xs text-monoFg font-mono hover:border-monoGreen transition cursor-pointer whitespace-nowrap min-w-[115px]">
+            <span class="cs-label">All Media</span>
+            <svg class="w-3.5 h-3.5 text-monoMuted shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+          </button>
+          <div class="cs-menu hidden absolute top-full right-0 sm:left-0 sm:right-auto mt-1.5 w-44 bg-[#1e1f1c] border border-monoBorder rounded-xl shadow-2xl py-1 z-[70] overflow-hidden backdrop-blur-md">
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="ALL">
+              <span>All Media</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="HAS_SCREENSHOT">
+              <span>Has Screenshot</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+            <div class="cs-option px-3.5 py-2 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="HAS_VIDEO">
+              <span>Has Video</span>
+              <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- VIEW MODE SWITCHER (P2: Above trades list on left side) -->
+    <div class="flex items-center justify-start pt-1">
+      <div class="flex items-center bg-monoBg border border-monoBorder rounded-xl p-0.5">
+        <button id="viewTableBtn" onclick="setViewMode('table')" class="px-2.5 py-1 rounded-lg text-xs font-bold text-[#272822] bg-monoGreen transition cursor-pointer" title="Line View">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+          </svg>
+        </button>
+        <button id="viewGridBtn" onclick="setViewMode('grid')" class="px-2.5 py-1 rounded-lg text-xs font-medium text-monoMuted hover:text-monoFg transition cursor-pointer" title="Box Card View">
+          <svg class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- TRADES CONTAINER -->
+    <section id="tradesContainer">
+      <!-- Injected via JavaScript -->
+    </section>
+
+  </main>
+
+  <!-- SLEEK MINIMALIST APP FOOTER -->
+  <footer class="w-full border-t border-monoBorder py-6 px-4 text-center text-xs font-mono text-monoMuted">
+    <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+      <a href="/landing.html" class="hover:text-monoGreen transition">About / Features</a>
+      <span>&bull;</span>
+      <a href="/privacy.html" class="hover:text-monoGreen transition">Privacy Policy</a>
+      <span>&bull;</span>
+      <a href="/terms.html" class="hover:text-monoGreen transition">Terms of Service</a>
+    </div>
+    <p class="mt-2 text-[11px] text-monoMuted/70">&copy; 2026 Mesh Trading Journal. All rights reserved.</p>
+  </footer>
+
+  <!-- NATIVE MOBILE BOTTOM NAVIGATION BAR (Icons Only, No Glowing Buttons) -->
+  <nav class="mobile-bottom-nav sm:hidden" aria-label="Mobile Navigation">
+    <div class="max-w-md mx-auto px-6 flex items-center justify-between relative">
+      <!-- 1. Trades Tab -->
+      <button
+        type="button"
+        onclick="scrollToSection('tradesContainer')"
+        class="mobile-nav-item active"
+        id="mobileNavTrades"
+        title="Trades"
+        aria-label="Trades"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- 2. Analytics Tab -->
+      <button
+        type="button"
+        onclick="scrollToSection('equityChartSection')"
+        class="mobile-nav-item"
+        id="mobileNavStats"
+        title="Analytics"
+        aria-label="Analytics"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" />
+        </svg>
+      </button>
+
+      <!-- 3. Center Flat FAB: Log Trade (No Glow) -->
+      <button
+        type="button"
+        onclick="openNewTradeModal()"
+        class="mobile-nav-fab"
+        title="Log Trade"
+        aria-label="Log Trade"
+      >
+        <svg class="w-7 h-7 stroke-[3.2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+      </button>
+
+      <!-- 4. Search Tab (Scroll to Search) -->
+      <button
+        type="button"
+        onclick="scrollToSearch()"
+        class="mobile-nav-item"
+        id="mobileNavSearch"
+        title="Search"
+        aria-label="Search"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </button>
+
+      <!-- 5. Profile Tab -->
+      <button
+        type="button"
+        onclick="openProfileView()"
+        class="mobile-nav-item"
+        id="mobileNavProfile"
+        title="Profile"
+        aria-label="Profile"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================== STREAMLINED LOG TRADE MODAL ==================== -->
+  <div id="tradeModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4">
+    <div class="bg-monoCard border border-monoBorder w-full max-w-md rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden my-0 sm:my-6 max-h-[92dvh] flex flex-col">
+      <div class="sheet-handle sm:hidden"></div>
+      
+      <!-- Modal Header -->
+      <div class="px-4 py-3 sm:px-6 sm:py-4 bg-monoBg border-b border-monoBorder flex items-center justify-between shrink-0">
+        <div class="flex items-center space-x-2.5">
+          <div class="w-8 h-8 rounded-xl bg-[#2e2f28] border border-monoGreen/35 text-monoGreen flex items-center justify-center shrink-0 shadow-sm shadow-black/40">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </div>
+          <h3 class="text-sm sm:text-base font-bold text-monoFg font-mono" id="modalTitle">Log Trade</h3>
+        </div>
+        <button onclick="closeTradeModal()" class="text-monoMuted hover:text-monoFg p-1.5 rounded-lg hover:bg-monoCardElevated transition" aria-label="Close">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Form -->
+      <form id="tradeForm" onsubmit="saveTrade(event)" class="p-4 sm:p-6 space-y-3.5 sm:space-y-4 overflow-y-auto flex-1 pb-safe">
+        <input type="hidden" id="editTradeId" value="" />
+
+        <!-- 1. TRADING PAIR -->
+        <div class="relative">
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-monoFg font-mono">
+              Trading Pair <span class="text-monoPink">*</span>
+            </label>
+          </div>
+          
+          <div class="relative">
+            <input
+              type="text"
+              id="inputPair"
+              required
+              autocomplete="off"
+              placeholder="e.g. EURUSD, XAUUSD, BTCUSDT"
+              oninput="handlePairInput(event)"
+              onfocus="handlePairInput(event)"
+              onkeydown="handlePairKeydown(event)"
+              class="w-full px-3.5 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-sm font-semibold uppercase text-monoFg placeholder-monoMuted focus:outline-none focus:border-monoGreen focus:ring-1 focus:ring-monoGreen font-mono transition"
+            />
+            
+            <!-- Predictive Autocomplete Dropdown (Floating) -->
+            <div
+              id="pairPredictionsMenu"
+              class="hidden absolute left-0 right-0 top-full mt-1.5 bg-[#1e1f1c] border border-monoBorder rounded-xl shadow-2xl py-1 z-[80] max-h-48 overflow-y-auto no-scrollbar backdrop-blur-md"
+            >
+              <!-- Populated dynamically via JS -->
+            </div>
+          </div>
+
+          <!-- Horizontal Scrollable Slider (Recent & Major Pairs) -->
+          <div class="mt-2.5">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-[9px] font-mono uppercase tracking-wider text-monoMuted">All Pairs Slider</span>
+              <div class="flex items-center space-x-1">
+                <button type="button" onclick="scrollPairSlider(-140)" class="slider-nav-btn text-monoMuted hover:text-monoGreen p-0.5 rounded cursor-pointer" title="Scroll Left">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+                <button type="button" onclick="scrollPairSlider(140)" class="slider-nav-btn text-monoMuted hover:text-monoGreen p-0.5 rounded cursor-pointer" title="Scroll Right">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+            </div>
+            <div id="allPairsSlider" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-1">
+              <!-- Populated dynamically via JS: recent pairs first! -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. DIRECTION -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-monoFg mb-1.5 font-mono">
+            Direction <span class="text-monoPink">*</span>
+          </label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="direction-radio relative flex items-center justify-center p-2.5 rounded-xl border border-monoBorder cursor-pointer transition hover:bg-monoCardElevated has-[:checked]:border-monoGreen has-[:checked]:bg-monoGreen/10 has-[:checked]:text-monoGreen active:scale-95">
+              <input type="radio" name="direction" value="LONG" class="sr-only" checked />
+              <span class="flex items-center text-xs font-bold tracking-wide font-mono">
+                <span class="w-2 h-2 rounded-full bg-monoGreen mr-2"></span>
+                BUY
+              </span>
+            </label>
+
+            <label class="direction-radio relative flex items-center justify-center p-2.5 rounded-xl border border-monoBorder cursor-pointer transition hover:bg-monoCardElevated has-[:checked]:border-monoPink has-[:checked]:bg-monoPink/10 has-[:checked]:text-monoPink active:scale-95">
+              <input type="radio" name="direction" value="SHORT" class="sr-only" />
+              <span class="flex items-center text-xs font-bold tracking-wide font-mono">
+                <span class="w-2 h-2 rounded-full bg-monoPink mr-2"></span>
+                SELL
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 3. RISK:REWARD (R:R) -->
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-monoFg mb-1.5 font-mono">
+            Risk:Reward (R:R) <span class="text-monoPink">*</span>
+          </label>
+          <div class="relative flex items-center">
+            <input
+              type="text"
+              id="inputRR"
+              required
+              placeholder="e.g. 1:3 or 1:2.5"
+              oninput="updatePnlPreview()"
+              class="w-full pl-3.5 pr-10 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-sm font-semibold text-monoFg placeholder-monoMuted focus:outline-none focus:border-monoGreen font-mono transition"
+            />
+            <!-- Stepper Controls (^ and opposite v) -->
+            <div class="absolute right-1.5 top-1/2 -translate-y-1/2 flex flex-col items-center bg-monoCard border border-monoBorder rounded-lg overflow-hidden shadow-sm">
+              <button
+                type="button"
+                onclick="stepRR(0.5)"
+                class="px-2 py-0.5 text-monoMuted hover:text-monoGreen hover:bg-monoCardElevated transition-colors cursor-pointer active:scale-95"
+                title="Increase R:R (+0.5)"
+              >
+                <svg class="w-3 h-3 stroke-[2.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                </svg>
+              </button>
+              <div class="w-full border-t border-monoBorder/60"></div>
+              <button
+                type="button"
+                onclick="stepRR(-0.5)"
+                class="px-2 py-0.5 text-monoMuted hover:text-monoPink hover:bg-monoCardElevated transition-colors cursor-pointer active:scale-95"
+                title="Decrease R:R (-0.5)"
+              >
+                <svg class="w-3 h-3 stroke-[2.8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic User Past R:R Chips -->
+          <div id="dynamicRRContainer" class="flex flex-wrap gap-1 mt-1.5">
+            <!-- Dynamically populated from user's past trades -->
+          </div>
+        </div>
+
+        <!-- 4. RESULT & RETURN (2-Column Grid) -->
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Result Selector (Custom Monokai Dropdown) -->
+          <div class="relative">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-monoFg mb-1.5 font-mono">
+              Result <span class="text-monoPink">*</span>
+            </label>
+            <select id="inputResult" onchange="updatePnlPreview()" class="hidden">
+              <option value="WIN">WIN</option>
+              <option value="LOSS">LOSS</option>
+              <option value="BREAKEVEN">BREAK-EVEN</option>
+            </select>
+            <div class="custom-select relative w-full" data-for="inputResult">
+              <button
+                type="button"
+                class="cs-trigger w-full flex items-center justify-between gap-2 px-3.5 py-2.5 bg-monoBg border border-monoGreen text-monoGreen rounded-xl text-sm font-semibold transition cursor-pointer font-mono"
+              >
+                <span class="cs-label">WIN</span>
+                <svg class="w-4 h-4 text-monoMuted shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="cs-menu hidden absolute top-full left-0 mt-1.5 w-full bg-[#1e1f1c] border border-monoBorder rounded-xl shadow-2xl py-1 z-[70] overflow-hidden backdrop-blur-md">
+                <div class="cs-option px-3.5 py-2.5 text-xs font-mono text-monoFg hover:bg-monoGreen/10 hover:text-monoGreen cursor-pointer transition flex items-center justify-between" data-value="WIN">
+                  <span class="font-bold text-monoGreen">WIN</span>
+                  <span class="cs-check text-monoGreen font-bold ml-2">✓</span>
+                </div>
+                <div class="cs-option px-3.5 py-2.5 text-xs font-mono text-monoFg hover:bg-monoPink/10 hover:text-monoPink cursor-pointer transition flex items-center justify-between" data-value="LOSS">
+                  <span class="font-bold text-monoPink">LOSS</span>
+                  <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+                </div>
+                <div class="cs-option px-3.5 py-2.5 text-xs font-mono text-monoFg hover:bg-monoYellow/10 hover:text-monoYellow cursor-pointer transition flex items-center justify-between" data-value="BREAKEVEN">
+                  <span class="font-bold text-monoYellow">BREAK-EVEN</span>
+                  <span class="cs-check opacity-0 text-monoGreen font-bold ml-2">✓</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Return Display (Clean - No '(Auto)' label, No 'Auto' pill) -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-monoMuted mb-1.5 font-mono">
+              Return
+            </label>
+            <div id="pnlPreviewBox" class="w-full px-3.5 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-sm font-mono font-bold text-monoGreen flex items-center justify-center">
+              <span id="pnlPreviewText">+1.0R</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRADE NOTES WITH TOGGLE -->
+        <div class="border-t border-monoBorder/60 pt-3">
+          <div class="flex items-center justify-between">
+            <label class="text-xs font-semibold uppercase tracking-wider text-monoFg font-mono flex items-center space-x-2">
+              <svg class="w-3.5 h-3.5 text-monoYellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+              </svg>
+              <span>Trade Notes</span>
+            </label>
+            
+            <!-- Sleek Switch Toggle (Default Untoggled) -->
+            <label class="relative inline-flex items-center cursor-pointer select-none" title="Toggle Notes">
+              <input type="checkbox" id="toggleNotesSwitch" onchange="handleToggleNotes(this.checked)" class="sr-only peer" />
+              <div class="w-9 h-5 bg-monoBg border border-monoBorder peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-monoMuted after:border-monoBorder after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-monoGreen/20 peer-checked:border-monoGreen peer-checked:after:bg-monoGreen"></div>
+            </label>
+          </div>
+
+          <!-- Collapsible Textarea Container (Default Hidden) -->
+          <div id="notesContainer" class="hidden mt-2.5 transition-all">
+            <textarea
+              id="inputNotes"
+              rows="3"
+              placeholder="Trade reason, analysis, psychology..."
+              class="w-full px-3.5 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-xs sm:text-sm text-monoFg placeholder-monoMuted focus:outline-none focus:border-monoGreen font-mono"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- ================= TRADE SCREENSHOT UPLOAD ================= -->
+        <div class="border-t border-monoBorder/60 pt-3">
+          <div class="flex items-center justify-between mb-1.5">
+            <label class="text-xs font-semibold text-monoFg flex items-center font-mono">
+              <svg class="w-4 h-4 mr-1.5 text-monoCyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Trade Screenshot
+            </label>
+          </div>
+
+          <!-- Image Drop Zone -->
+          <div
+            id="imageDropZone"
+            class="border-2 border-dashed border-monoBorder hover:border-monoGreen rounded-xl p-3.5 text-center cursor-pointer bg-monoBg/60 transition flex flex-col items-center justify-center relative group"
+            onclick="document.getElementById('inputScreenshot').click()"
+          >
+            <input type="file" id="inputScreenshot" accept="image/*" class="hidden" onchange="handleImageSelect(event)" />
+            
+            <div id="imagePlaceholder" class="py-2 flex flex-col items-center justify-center space-y-1.5">
+              <svg class="w-6 h-6 text-monoMuted group-hover:text-monoCyan transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+              <span class="text-xs font-mono font-semibold text-monoFg group-hover:text-monoGreen transition">Upload</span>
+            </div>
+
+            <!-- Preview container -->
+            <div id="imagePreviewContainer" class="hidden w-full relative">
+              <img id="imagePreview" src="" alt="Screenshot Preview" class="max-h-44 rounded-lg mx-auto object-contain border border-monoBorder shadow-md" />
+              <button
+                type="button"
+                onclick="event.stopPropagation(); removeImagePreview()"
+                class="absolute top-1 right-1 bg-monoPink hover:opacity-90 text-white p-1 rounded-full text-xs shadow-lg cursor-pointer"
+                title="Remove image"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div id="imageCompressInfo" class="hidden mt-1.5 text-xs font-mono font-bold text-monoGreen"></div>
+        </div>
+
+        <!-- Form Submit & Cancel -->
+        <div class="pt-3 border-t border-monoBorder flex items-center justify-end space-x-3">
+          <button type="button" onclick="closeTradeModal()" class="px-4 py-2 rounded-xl text-xs font-semibold text-monoMuted hover:text-monoFg hover:bg-monoCardElevated transition cursor-pointer">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            id="saveBtn"
+            class="px-6 py-2.5 rounded-xl text-sm font-bold text-[#272822] bg-monoGreen hover:bg-[#b8f041] shadow-none flex items-center transition cursor-pointer active:scale-95"
+          >
+            <span id="saveBtnText">Save Trade</span>
+            <svg id="saveSpinner" class="hidden animate-spin ml-2 h-4 w-4 text-[#272822]" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ==================== TRADE DETAIL MODAL (Mobile Bottom Sheet / Desktop Modal) ==================== -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/85 backdrop-blur-md flex items-end sm:items-center justify-center p-0 sm:p-5">
+    <div class="bg-monoCard border border-monoBorder w-full max-w-3xl rounded-t-3xl sm:rounded-2xl shadow-2xl overflow-hidden my-0 sm:my-6 max-h-[92dvh] flex flex-col">
+      <div class="sheet-handle sm:hidden"></div>
+      
+      <!-- Detail Header -->
+      <div class="px-4 py-3 sm:px-6 sm:py-4 bg-monoBg border-b border-monoBorder flex items-center justify-between shrink-0">
+        <div class="flex items-center flex-wrap gap-2 sm:gap-2.5">
+          <span id="detailDirectionBadge" class="text-xs sm:text-sm font-extrabold font-mono text-[#f92672]">SELL</span>
+          <h2 id="detailPair" class="text-base sm:text-xl font-extrabold text-monoFg font-mono">XAUUSD</h2>
+          <span id="detailResultBadge" class="hidden"></span>
+          <span id="detailRRBadge" class="text-[11px] sm:text-xs font-semibold text-monoFg font-mono bg-monoCardElevated px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg border border-monoBorder">R:R 1:3</span>
+          <span id="detailPnlBadge" class="text-xs sm:text-sm font-bold font-mono text-monoPink">-1R</span>
+        </div>
+        <div class="flex items-center space-x-1 sm:space-x-1.5 shrink-0">
+          <!-- Edit button: Icon only, no pill bar, grey -> white on hover -->
+          <button
+            type="button"
+            onclick="editCurrentTrade()"
+            class="p-1.5 text-monoMuted hover:text-white transition cursor-pointer"
+            title="Edit Trade"
+            aria-label="Edit Trade"
+          >
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+            </svg>
+          </button>
+          
+          <!-- Delete button: Icon only, no pill bar, grey -> red on hover -->
+          <button
+            type="button"
+            onclick="deleteCurrentTrade()"
+            class="p-1.5 text-monoMuted hover:text-[#f92672] transition cursor-pointer"
+            title="Delete Trade"
+            aria-label="Delete Trade"
+          >
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </button>
+
+          <!-- Close button: Icon only, no pill bar, grey -> white on hover -->
+          <button
+            type="button"
+            onclick="closeDetailModal()"
+            class="p-1.5 text-monoMuted hover:text-white transition cursor-pointer"
+            aria-label="Close"
+            title="Close"
+          >
+            <svg class="w-4 h-4 sm:w-4.5 sm:h-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Detail Body -->
+      <div class="p-6 space-y-5 max-h-[82vh] overflow-y-auto">
+        
+        <!-- SCREENSHOT SECTION -->
+        <div id="detailScreenshotSection" class="hidden space-y-2">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-monoFg flex items-center font-mono">
+              <svg class="w-4 h-4 mr-1.5 text-monoCyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Trade Screenshot
+            </h4>
+            <a id="detailScreenshotLink" href="#" target="_blank" class="text-xs text-monoCyan hover:underline flex items-center font-mono">
+              <span>Open Full Size</span>
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+          <div class="bg-black/60 rounded-xl p-2 border border-monoBorder flex items-center justify-center overflow-hidden">
+            <img id="detailScreenshotImg" src="" alt="Trade Screenshot" class="max-h-[480px] w-auto rounded-lg shadow-xl object-contain cursor-zoom-in" onclick="openLightbox(this.src)" />
+          </div>
+        </div>
+
+        <!-- VIDEO PLAYER SECTION -->
+        <div id="detailVideoSection" class="hidden space-y-2">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-monoFg flex items-center font-mono">
+            <svg class="w-4 h-4 mr-1.5 text-monoPurple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            Trade Video Recording
+          </h4>
+          <div class="bg-black rounded-xl overflow-hidden border border-monoBorder shadow-2xl">
+            <video id="detailVideoPlayer" controls class="w-full max-h-[450px] mx-auto"></video>
+          </div>
+        </div>
+
+        <!-- NOTES -->
+        <div id="detailNotesContainer">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-monoMuted mb-1 font-mono">Trade Notes</h4>
+          <div id="detailNotes" class="bg-monoBg p-4 rounded-xl border border-monoBorder text-sm text-monoFg whitespace-pre-wrap leading-relaxed font-mono">
+            No notes entered.
+          </div>
+        </div>
+
+        <!-- Recorded Date Footer -->
+        <div class="text-[11px] text-monoMuted pt-3 border-t border-monoBorder flex items-center justify-between font-mono">
+          <span id="detailDateTime">Logged on: -</span>
+          <span id="detailSourceBadge">Cloud Synced</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== IMAGE LIGHTBOX ==================== -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/95 flex items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+    <img id="lightboxImg" src="" alt="Full Screen Preview" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+    <button class="absolute top-4 right-4 text-white bg-monoCard p-2 rounded-full hover:bg-monoCardElevated">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- ==================== IMPORT MODAL ==================== -->
+  <div id="importModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-monoCard border border-monoBorder w-full max-w-md rounded-2xl p-6 shadow-2xl">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="text-base font-bold text-monoFg flex items-center font-mono">
+          <svg class="w-5 h-5 mr-2 text-monoCyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12" />
+          </svg>
+          Import JSON Backup
+        </h3>
+        <button onclick="closeImportModal()" class="text-monoMuted hover:text-monoFg">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <form onsubmit="handleImport(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-monoFg mb-1 font-mono">Select JSON File</label>
+          <input type="file" id="importFile" accept=".json,application/json" required class="w-full text-xs text-monoMuted file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-monoGreen file:text-[#272822] hover:file:bg-[#b8f041]" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-monoFg mb-1 font-mono">Import Mode</label>
+          <div class="space-y-2 text-xs">
+            <label class="flex items-center text-monoFg">
+              <input type="radio" name="importMode" value="merge" checked class="mr-2 text-monoGreen" />
+              <span>Merge with existing trades</span>
+            </label>
+            <label class="flex items-center text-monoFg">
+              <input type="radio" name="importMode" value="replace" class="mr-2 text-monoPink" />
+              <span class="text-monoPink">Replace current file completely</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-monoBorder flex items-center justify-between">
+          <button type="button" onclick="exportTradesJSON()" class="text-xs text-monoGreen hover:underline font-mono font-semibold flex items-center cursor-pointer">
+            <svg class="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            Export Backup
+          </button>
+          <div class="flex space-x-2">
+            <button type="button" onclick="closeImportModal()" class="px-4 py-2 text-xs font-medium text-monoMuted hover:text-monoFg cursor-pointer">Cancel</button>
+            <button type="submit" class="px-5 py-2 text-xs font-bold rounded-xl bg-monoGreen text-[#272822] hover:bg-[#b8f041] cursor-pointer">Import File</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== FULL-SCREEN EDIT PROFILE WINDOW (No Popup) ==================== -->
+  <div id="fullProfileScreen" class="hidden fixed inset-0 z-50 bg-monoBg text-monoFg overflow-y-auto flex flex-col antialiased">
+    
+    <!-- Top Navigation Bar (Full Screen) -->
+    <header class="sticky top-0 z-10 bg-monoBg/95 backdrop-blur-md border-b border-monoBorder">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+        <button
+          type="button"
+          onclick="closeProfileView()"
+          class="p-2 -ml-2 text-monoMuted hover:text-monoGreen transition cursor-pointer rounded-lg"
+          title="Back to Journal"
+          aria-label="Back to Journal"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <div></div>
+
+        <button
+          type="button"
+          onclick="handleSaveProfile(event)"
+          id="profileSaveTopBtn"
+          class="px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-xl text-xs sm:text-sm font-bold font-mono text-[#272822] bg-monoGreen hover:bg-[#b8f041] shadow-none transition active:scale-95 cursor-pointer"
+        >
+          Save Changes
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Settings Body -->
+    <main class="flex-1 max-w-2xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 space-y-6 sm:space-y-8">
+      
+      <!-- CARD 1: PROFILE PICTURE -->
+      <section class="bg-monoCard border border-monoBorder rounded-2xl p-5 sm:p-7 shadow-sm">
+        <h2 class="text-xs sm:text-sm font-bold font-mono text-monoFg uppercase tracking-wide mb-5 flex items-center space-x-2">
+          <svg class="w-4 h-4 text-monoCyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          <span>Profile Photo</span>
+        </h2>
+
+        <div class="flex flex-col items-center gap-4">
+          <!-- Large Circular Avatar Preview -->
+          <div class="relative group shrink-0">
+            <div id="fullProfileAvatarPreview" class="w-24 h-24 sm:w-28 sm:h-28 rounded-full ring-4 ring-monoGreen/80 overflow-hidden shadow-xl bg-monoBg flex items-center justify-center">
+              <!-- Dynamically injected img or initial badge -->
+            </div>
+            <label for="profilePhotoInput" class="absolute inset-0 rounded-full bg-black/55 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-white text-[10px] font-mono font-bold transition cursor-pointer backdrop-blur-[2px]">
+              <svg class="w-5 h-5 mb-1 text-monoGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Change DP</span>
+            </label>
+          </div>
+
+          <!-- Upload Controls (centered below avatar) -->
+          <input
+            type="file"
+            id="profilePhotoInput"
+            accept="image/png,image/jpeg,image/webp,image/gif"
+            class="hidden"
+            onchange="handleProfilePhotoChange(event)"
+          />
+          <div class="flex items-center gap-2.5">
+            <label
+              for="profilePhotoInput"
+              class="p-2.5 rounded-xl text-monoCyan hover:text-monoGreen bg-monoCardElevated hover:bg-[#383a31] border border-monoBorder transition cursor-pointer flex items-center justify-center shadow-none active:scale-95"
+              title="Upload New DP"
+              aria-label="Upload New DP"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+              </svg>
+            </label>
+
+            <button
+              type="button"
+              onclick="handleRemoveProfilePhoto()"
+              id="removeDpBtn"
+              class="p-2.5 rounded-xl text-monoMuted hover:text-monoPink bg-monoCardElevated hover:bg-[#383a31] border border-monoBorder transition cursor-pointer flex items-center justify-center shadow-none active:scale-95"
+              title="Reset to Default"
+              aria-label="Reset to Default"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARD 2: DISPLAY NAME & BRAND -->
+      <section class="bg-monoCard border border-monoBorder rounded-2xl p-5 sm:p-7 shadow-sm">
+        <h2 class="text-xs sm:text-sm font-bold font-mono text-monoFg uppercase tracking-wide mb-4 flex items-center space-x-2">
+          <svg class="w-4 h-4 text-monoYellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+          <span>Display Name</span>
+        </h2>
+
+        <div>
+          <label class="block text-xs font-semibold text-monoFg mb-1.5 font-mono">Display Name</label>
+          <input
+            type="text"
+            id="fullProfileNameInput"
+            maxlength="25"
+            placeholder="e.g. Strika or Mesh"
+            class="w-full px-4 py-3 bg-monoBg border border-monoBorder rounded-xl text-sm font-mono text-monoFg placeholder-monoMuted focus:outline-none focus:border-monoGreen focus:ring-1 focus:ring-monoGreen transition"
+          />
+        </div>
+      </section>
+
+      <!-- CARD 3: ACCOUNT & UID DETAILS (READONLY) -->
+      <section class="bg-monoCard border border-monoBorder rounded-2xl p-5 sm:p-7 shadow-sm space-y-4">
+        <h2 class="text-xs sm:text-sm font-bold font-mono text-monoFg uppercase tracking-wide flex items-center space-x-2">
+          <svg class="w-4 h-4 text-monoGreen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <span>Account &amp; Security</span>
+        </h2>
+
+        <div>
+          <label class="block text-xs font-semibold text-monoMuted mb-1.5 font-mono">Gmail</label>
+          <div id="fullProfileEmailDisplay" class="w-full px-4 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-xs font-mono text-monoFg select-all">
+            -
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-monoMuted mb-1.5 font-mono">UID</label>
+          <div class="relative flex items-center">
+            <div id="fullProfileUidDisplay" class="w-full pl-4 pr-11 py-2.5 bg-monoBg border border-monoBorder rounded-xl text-xs font-mono text-monoFg select-all truncate">
+              -
+            </div>
+            <button
+              type="button"
+              onclick="copyUserIdToClipboard()"
+              id="fullProfileCopyUidBtn"
+              class="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 text-monoMuted hover:text-white transition-colors cursor-pointer rounded-lg"
+              title="Copy UID"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Save / Cancel Actions (Hidden on mobile, only sticky top Save button used) -->
+      <div class="hidden sm:flex items-center justify-end space-x-3 pt-2">
+        <button
+          type="button"
+          onclick="closeProfileView()"
+          class="px-5 py-2.5 rounded-xl text-xs font-mono font-semibold text-monoMuted hover:text-monoFg transition cursor-pointer"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          onclick="handleSaveProfile(event)"
+          id="profileSaveBottomBtn"
+          class="px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold font-mono text-[#272822] bg-monoGreen hover:bg-[#b8f041] shadow-none transition active:scale-95 cursor-pointer flex items-center space-x-1.5"
+        >
+          <span>Save Changes</span>
+        </button>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col space-y-2"></div>
+
+  <script src="config.js?v=4.9"></script>
+  <script src="app.js?v=4.9"></script>
+</body>
+</html>
