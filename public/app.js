@@ -261,7 +261,7 @@ function resolveUserNames(user) {
     };
   }
 
-  // 3. Fallback from email address
+  // 3. Fallback from email address (e.g. khankakakhan084@gmail.com -> Khan)
   if (user.email) {
     const prefix = user.email.split('@')[0];
     const lettersOnly = prefix.replace(/[^a-zA-Z]/g, ' ').trim().split(/\s+/)[0] || prefix;
@@ -276,8 +276,9 @@ function resolveUserNames(user) {
 }
 
 function handleAuthSuccess(user, isExplicitLogin = false) {
+  // Guard: only skip if same user already logged in AND this is NOT a fresh explicit sign-in
   if (currentUser && currentUser.id === user.id && !isExplicitLogin) {
-    hideAuthScreen();
+    hideAuthScreen(); // Always ensure auth screen stays hidden
     return;
   }
   currentUser = user;
@@ -293,11 +294,13 @@ function handleAuthSuccess(user, isExplicitLogin = false) {
 
   const { firstName, displayName } = resolveUserNames(user);
 
+  // 1. Update Brand Header Title: [FIRST NAME] JOURNAL
   const brandFirstNameEl = document.getElementById('brandFirstName');
   if (brandFirstNameEl) {
     brandFirstNameEl.innerText = firstName;
   }
 
+  // 2. User Avatar in place of generic stag logo
   const stagLogo = document.getElementById('brandStagLogo');
   const avatarWrapper = document.getElementById('brandUserAvatarWrapper');
   const caret = document.getElementById('profileDropdownCaret');
@@ -322,6 +325,7 @@ function handleAuthSuccess(user, isExplicitLogin = false) {
   if (stagLogo) stagLogo.classList.add('hidden');
   if (caret) caret.classList.remove('hidden');
 
+  // 3. Populate Profile Dropdown Menu Details
   const dropdownAvatarEl = document.getElementById('dropdownAvatarEl');
   if (dropdownAvatarEl) {
     if (avatarUrl) {
@@ -346,12 +350,14 @@ function handleAuthSuccess(user, isExplicitLogin = false) {
   const dropdownUid = document.getElementById('dropdownUidDisplay');
   if (dropdownUid) dropdownUid.innerText = user.id || '-';
 
+  // 4. Welcome toast on deliberate manual login only (not on every visit or page refresh)
   const sessionWelcomedKey = 'mesh_welcomed_' + (user.id || 'user');
   if (isExplicitLogin && !sessionStorage.getItem(sessionWelcomedKey)) {
     sessionStorage.setItem(sessionWelcomedKey, 'true');
     showToast(`Welcome back, ${displayName}!`, 'success');
   }
 
+  // 5. Clean up OAuth tokens from URL after small tick so Supabase internal storage has written
   if (window.location.search.includes('code=') || window.location.hash.includes('access_token=')) {
     setTimeout(() => {
       try {
@@ -379,6 +385,7 @@ function handleBrandAvatarClick(e) {
     e.stopPropagation();
     e.preventDefault();
   }
+  // If user is authenticated, direct profile setting window opens
   if (currentUser && currentUser.id !== 'local_guest') {
     closeProfileDropdown();
     openProfileView();
@@ -454,6 +461,7 @@ function copyUserIdToClipboard() {
   });
 }
 
+// State for pending uploaded DP
 let pendingAvatarDataUrl = null;
 
 function openProfileView() {
@@ -517,11 +525,13 @@ function handleProfilePhotoChange(e) {
   reader.onload = (loadEvt) => {
     const img = new Image();
     img.onload = () => {
+      // Scale down image to max 320x320 square for fast local/cloud sync
       const canvas = document.createElement('canvas');
       const maxDim = 320;
       const width = img.width;
       const height = img.height;
 
+      // Crop to square from center
       const minDim = Math.min(width, height);
       const startX = (width - minDim) / 2;
       const startY = (height - minDim) / 2;
@@ -565,9 +575,11 @@ async function handleSaveProfile(e) {
     return;
   }
 
+  // 1. Save Display Name
   localStorage.setItem(`mesh_custom_display_name_${currentUser.id}`, newName);
   localStorage.setItem(`adil_custom_display_name_${currentUser.id}`, newName);
 
+  // 2. Save Avatar DP
   if (pendingAvatarDataUrl === 'REMOVE') {
     localStorage.removeItem(`mesh_custom_avatar_${currentUser.id}`);
     localStorage.removeItem(`adil_custom_avatar_${currentUser.id}`);
@@ -576,6 +588,7 @@ async function handleSaveProfile(e) {
     localStorage.setItem(`adil_custom_avatar_${currentUser.id}`, pendingAvatarDataUrl);
   }
 
+  // 3. Update Supabase Metadata
   if (supabaseClient && currentUser.id !== 'local_guest') {
     const updatePayload = {
       custom_display_name: newName,
@@ -640,6 +653,7 @@ function clearAuthAlert() {
 
 // ----------------- AUTH ACTIONS -----------------
 
+// 1. Continue with Google (Gmail)
 async function signInWithGoogle() {
   clearAuthAlert();
   if (!supabaseClient) {
@@ -653,6 +667,7 @@ async function signInWithGoogle() {
   try {
     sessionStorage.setItem('adil_oauth_login_in_progress', 'true');
 
+    // Retrieve previous or typed email to pass as login_hint to Google
     const emailInput = document.getElementById('authEmail');
     const typedEmail = (emailInput ? emailInput.value : '').trim().toLowerCase();
     const lastEmail = localStorage.getItem('ADIL_LAST_GOOGLE_EMAIL') || '';
@@ -662,6 +677,8 @@ async function signInWithGoogle() {
       redirectTo: window.location.origin + '/app'
     };
 
+    // By omitting prompt: 'consent', Google will not force the "Choose an account" screen!
+    // And if hintEmail is provided, Google selects that account directly.
     if (hintEmail) {
       options.queryParams = {
         login_hint: hintEmail
@@ -691,6 +708,7 @@ async function signInWithGoogle() {
   }
 }
 
+// 2. Gmail / Email & Password Auth (Sign In or Sign Up - No Username)
 async function handleEmailAuth(e) {
   e.preventDefault();
   clearAuthAlert();
@@ -724,6 +742,7 @@ async function handleEmailAuth(e) {
 
   try {
     if (isSignUpMode) {
+      // Sign Up with Email
       const { data, error } = await supabaseClient.auth.signUp({
         email,
         password
@@ -735,6 +754,7 @@ async function handleEmailAuth(e) {
         if (data.session) {
           handleAuthSuccess(data.user, true);
         } else {
+          // Attempt immediate auto-login since email is auto-confirmed in DB
           const loginRes = await supabaseClient.auth.signInWithPassword({ email, password });
           if (loginRes.data?.user) {
             handleAuthSuccess(loginRes.data.user, true);
@@ -745,6 +765,7 @@ async function handleEmailAuth(e) {
         }
       }
     } else {
+      // Sign In with Email
       const { data, error } = await supabaseClient.auth.signInWithPassword({
         email,
         password
@@ -764,6 +785,7 @@ async function handleEmailAuth(e) {
   }
 }
 
+// 3. Sign Out
 async function handleSignOut() {
   localStorage.removeItem('MESH_GUEST_MODE');
   localStorage.removeItem('ADIL_GUEST_MODE');
@@ -779,6 +801,7 @@ async function handleSignOut() {
   allTrades = [];
   renderTrades();
 
+  // Reset Brand Header & Logo
   const brandFirstNameEl = document.getElementById('brandFirstName');
   if (brandFirstNameEl) brandFirstNameEl.innerText = 'MESH';
 
@@ -801,7 +824,7 @@ async function handleSignOut() {
   }, 500);
 }
 
-// ----------------- DATA FETCHING -----------------
+// ----------------- DATA FETCHING (SUPABASE / LOCAL) -----------------
 
 async function loadData() {
   if (!currentUser) return;
@@ -830,6 +853,7 @@ async function fetchTrades() {
     }
   }
 
+  // Fallback to local server or localStorage
   fallbackLocalFetch();
 }
 
@@ -842,6 +866,7 @@ async function fallbackLocalFetch() {
       renderTrades();
     }
   } catch (err) {
+    // If static on Vercel without local server, load from localStorage
     const saved = localStorage.getItem('ADIL_LOCAL_TRADES');
     allTrades = saved ? JSON.parse(saved) : [];
     renderTrades();
@@ -894,6 +919,7 @@ function updateStatsFromTradesList(trades) {
 
   document.getElementById('statProfitFactor').innerText = profitFactor;
 
+  // Equity Curve
   const chronological = [...trades].sort((a, b) => new Date(a.created_at || a.createdAt || a.date) - new Date(b.created_at || b.createdAt || b.date));
   let runningR = 0;
   const equityCurve = chronological.map((t, idx) => {
@@ -911,7 +937,7 @@ function updateStatsFromTradesList(trades) {
   renderEquityChart(equityCurve);
 }
 
-// ----------------- RENDER EQUITY CURVE -----------------
+// ----------------- RENDER EQUITY CURVE (MONOKAI) -----------------
 
 function renderEquityChart(curveData) {
   const ctx = document.getElementById('equityChart');
@@ -957,7 +983,10 @@ function renderEquityChart(curveData) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      interaction: { mode: 'index', intersect: false },
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
       plugins: {
         legend: { display: false },
         tooltip: {
@@ -1037,6 +1066,7 @@ function renderDynamicPairSuggestions() {
   const slider = document.getElementById('allPairsSlider');
   if (!slider) return;
 
+  // 1. Collect user's recently traded pairs in chronological order (most recent first)
   const recentMap = new Map();
   const sortedTrades = [...(allTrades || [])].sort((a, b) => {
     const da = new Date(a.created_at || a.createdAt || a.date || 0);
@@ -1054,6 +1084,7 @@ function renderDynamicPairSuggestions() {
     }
   });
 
+  // 2. Combine: recent pairs first, then remaining MASTER_PAIRS
   const seen = new Set();
   const orderedList = [];
   recentMap.forEach((meta, sym) => {
@@ -1068,6 +1099,7 @@ function renderDynamicPairSuggestions() {
     }
   });
 
+  // 3. Render into horizontal slider
   slider.innerHTML = orderedList.map(item => `
     <button
       type="button"
@@ -1101,6 +1133,7 @@ function handlePairInput(e) {
     return;
   }
 
+  // Combine user past pairs + MASTER_PAIRS preserving real names & aliases
   const pairMap = new Map();
   MASTER_PAIRS.forEach(p => {
     pairMap.set(p.symbol, { ...p, isRecent: false });
@@ -1123,10 +1156,13 @@ function handlePairInput(e) {
     const keyMatch = p.keywords && p.keywords.some(k => k.toLowerCase().includes(qLower) || qLower.includes(k.toLowerCase()));
     return symMatch || nameMatch || keyMatch;
   }).sort((a, b) => {
+    // Exact symbol match first
     if (a.symbol === q) return -1;
     if (b.symbol === q) return 1;
+    // Starts with query
     if (a.symbol.startsWith(q) && !b.symbol.startsWith(q)) return -1;
     if (!a.symbol.startsWith(q) && b.symbol.startsWith(q)) return 1;
+    // Recent trades next
     if (a.isRecent && !b.isRecent) return -1;
     if (!a.isRecent && b.isRecent) return 1;
     return 0;
@@ -1280,6 +1316,7 @@ function updatePnlPreview() {
     previewText.className = 'text-[#f92672] font-bold font-mono text-base';
     previewBox.className = 'w-full px-3.5 py-2.5 bg-[#272822] border border-[#f92672]/40 rounded-xl font-mono flex items-center justify-center';
   } else {
+    // BREAKEVEN
     previewText.innerText = `0.0R`;
     previewText.className = 'text-[#e6db74] font-bold font-mono text-base';
     previewBox.className = 'w-full px-3.5 py-2.5 bg-[#272822] border border-[#e6db74]/40 rounded-xl font-mono flex items-center justify-center';
@@ -1402,6 +1439,7 @@ function renderTrades() {
       const notes = (t.notes || '').toLowerCase();
       let match = pair.includes(q) || notes.includes(q);
 
+      // Match by real name or alias (e.g. searching "gold" finds XAUUSD trades)
       if (!match) {
         const found = MASTER_PAIRS.find(m => {
           if (m.symbol.toLowerCase() !== pair) return false;
@@ -1476,6 +1514,7 @@ function renderGridView(trades, container) {
         class="trade-card rounded-2xl p-4 cursor-pointer flex flex-col justify-between group"
       >
         <div>
+          <!-- Card Header: Pair, Direction, Result -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center space-x-2.5">
               <span class="text-xs font-extrabold font-mono ${isLong ? 'text-[#a6e22e]' : 'text-[#f92672]'}">
@@ -1483,6 +1522,8 @@ function renderGridView(trades, container) {
               </span>
               <h3 class="text-base font-extrabold text-[#F8F8F2] font-mono group-hover:text-[#a6e22e] transition">${t.pair}</h3>
             </div>
+
+            <!-- Result (no pill bar, clean text) -->
             <span class="text-xs font-extrabold font-mono ${
               isWin ? 'text-[#a6e22e]' :
               isLoss ? 'text-[#f92672]' :
@@ -1492,6 +1533,7 @@ function renderGridView(trades, container) {
             </span>
           </div>
 
+          <!-- R:R & Auto Return -->
           <div class="flex items-center justify-between py-2 border-y border-[#3e3d32] my-2">
             <div>
               <span class="text-[10px] text-[#75715e] uppercase tracking-wider block font-mono">Risk:Reward</span>
@@ -1503,21 +1545,30 @@ function renderGridView(trades, container) {
             </div>
           </div>
 
+          <!-- Screenshot Preview -->
           ${t.screenshot ? `
             <div class="my-3 relative rounded-xl overflow-hidden bg-black/60 border border-[#3e3d32] h-32 flex items-center justify-center">
               <img src="${t.screenshot}" alt="${t.pair} Screenshot" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
               <div class="absolute bottom-1 right-1 bg-black/80 text-[10px] text-[#66d9ef] px-1.5 py-0.5 rounded flex items-center font-mono">
+                <svg class="w-3 h-3 mr-1 text-[#66d9ef]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                </svg>
                 Screenshot
               </div>
             </div>
           ` : ''}
 
+          <!-- Video Indicator Badge -->
           ${t.video ? `
             <div class="my-2 flex items-center px-2.5 py-1.5 rounded-lg bg-[#ae81ff]/10 border border-[#ae81ff]/30 text-[#ae81ff] text-xs font-mono font-medium">
-              Video Recording Attached
+              <svg class="w-4 h-4 mr-1.5 text-[#ae81ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span>🎥 Video Recording Attached</span>
             </div>
           ` : ''}
 
+          <!-- Notes Snippet -->
           ${t.notes ? `
             <p class="text-xs text-[#F8F8F2]/80 line-clamp-2 mt-2 font-mono">
               ${escapeHtml(t.notes)}
@@ -1525,8 +1576,14 @@ function renderGridView(trades, container) {
           ` : ''}
         </div>
 
+        <!-- Recorded Date Footer -->
         <div class="text-[11px] text-[#75715e] pt-2.5 mt-2.5 border-t border-[#3e3d32] flex items-center justify-between font-mono">
-          <span>${t.date || ''}</span>
+          <span class="flex items-center">
+            <svg class="w-3.5 h-3.5 mr-1 text-[#75715e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            ${t.date || ''}
+          </span>
           <span class="text-[#a6e22e] font-mono text-xs font-semibold group-hover:text-[#b8f041] transition">View &rarr;</span>
         </div>
       </div>
@@ -1537,7 +1594,7 @@ function renderGridView(trades, container) {
   container.innerHTML = html;
 }
 
-// ----------------- LINE / STRIP VIEW -----------------
+// ----------------- LINE / STRIP VIEW (DEFAULT - MATCHES IMG1) -----------------
 
 function renderTableView(trades, container) {
   let html = `<div class="space-y-2.5 sm:space-y-3">`;
@@ -1545,8 +1602,10 @@ function renderTableView(trades, container) {
   trades.forEach((t) => {
     const isWin = t.result === 'WIN';
     const isLoss = t.result === 'LOSS';
+    const isBE = t.result === 'BREAKEVEN';
     const isLong = t.direction === 'LONG' || t.direction === 'BUY';
 
+    // R:R Display (matches img1: e.g. "1:2.50 R:R" or "1:3.20 R:R")
     let rrVal = (t.rr || '').toString().trim();
     let rrDisplay = '';
     if (rrVal) {
@@ -1557,6 +1616,7 @@ function renderTableView(trades, container) {
       }
     }
 
+    // PnL Display (only digits with R, e.g. "+2.50R", "-1R" - no WIN/LOSS text needed)
     const pnlPrefix = t.pnl > 0 ? '+' : '';
     const pnlColor = isWin ? 'text-[#a6e22e]' : isLoss ? 'text-[#f92672]' : 'text-[#e6db74]';
     const pnlText = `${pnlPrefix}${t.pnl}R`;
@@ -1566,7 +1626,9 @@ function renderTableView(trades, container) {
         onclick="openDetailModal('${t.id}')"
         class="trade-strip-card flex items-center justify-between px-3.5 py-3 sm:px-5 sm:py-3.5 bg-[#1e1f1c] border border-[#3e3d32] rounded-xl sm:rounded-2xl cursor-pointer hover:border-[#a6e22e] transition group"
       >
+        <!-- Left Section: Direction + Pair + Notes Snippet + Media Icons -->
         <div class="flex items-center space-x-2.5 sm:space-x-3.5 min-w-0 pr-3">
+          <!-- Direction (Clean text, no pill bar) -->
           <span class="text-xs sm:text-sm font-extrabold font-mono uppercase tracking-wider shrink-0 ${
             isLong ? 'text-[#a6e22e]' : 'text-[#f92672]'
           }">
@@ -1578,6 +1640,7 @@ function renderTableView(trades, container) {
               <span class="text-xs sm:text-sm font-bold text-[#F8F8F2] font-mono shrink-0 group-hover:text-[#a6e22e] transition">
                 ${t.pair}
               </span>
+              <!-- Media Icons: Sleek minimalist SVGs (no emojis) -->
               ${t.screenshot ? `
                 <span title="Screenshot Attached" class="inline-flex items-center text-[#66d9ef] hover:text-[#a6e22e] transition shrink-0">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1592,6 +1655,7 @@ function renderTableView(trades, container) {
                   </svg>
                 </span>` : ''}
             </div>
+            <!-- Mobile Subtitle: Date & R:R (Hidden on sm:) -->
             <div class="text-[10px] text-[#75715e] font-mono sm:hidden truncate mt-0.5">
               ${t.date ? `<span>${t.date}</span>` : ''}
               ${t.date && rrDisplay ? `<span> • </span>` : ''}
@@ -1599,6 +1663,7 @@ function renderTableView(trades, container) {
             </div>
           </div>
 
+          <!-- Notes Snippet -->
           ${t.notes ? `
             <span class="text-xs text-[#a6a28c] font-mono truncate max-w-xs md:max-w-md hidden sm:inline ml-2">
               ${escapeHtml(t.notes)}
@@ -1606,6 +1671,7 @@ function renderTableView(trades, container) {
           ` : ''}
         </div>
 
+        <!-- Right Section: R:R & Return / Result -->
         <div class="flex items-center space-x-3 sm:space-x-5 shrink-0 font-mono text-xs sm:text-sm">
           ${rrDisplay ? `
             <span class="text-[#75715e] hidden sm:inline">
@@ -1691,7 +1757,7 @@ function formatBytes(bytes) {
   return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
 }
 
-// ----------------- MEDIA HANDLING -----------------
+// ----------------- MEDIA HANDLING (DRAG, DROP, PASTE) -----------------
 
 async function previewAndCompressImage(file) {
   removeScreenshotFlag = false;
@@ -1712,7 +1778,7 @@ async function previewAndCompressImage(file) {
   const savedPercent = Math.max(0, Math.round(((result.originalSize - result.compressedSize) / result.originalSize) * 100));
 
   if (infoEl) {
-    infoEl.innerText = `WebP: ${formatBytes(result.originalSize)} -> ${formatBytes(result.compressedSize)} (${savedPercent}% saved)`;
+    infoEl.innerText = `WebP: ${formatBytes(result.originalSize)} ➔ ${formatBytes(result.compressedSize)} (${savedPercent}% saved)`;
     infoEl.className = 'mt-1.5 text-xs font-mono font-bold text-[#a6e22e]';
   }
 }
@@ -1751,12 +1817,9 @@ function previewVideoFile(file) {
   removeVideoFlag = false;
 
   const url = URL.createObjectURL(file);
-  const videoPlaceholder = document.getElementById('videoPlaceholder');
-  const videoPreviewContainer = document.getElementById('videoPreviewContainer');
-  const videoPreview = document.getElementById('videoPreview');
-  if (videoPlaceholder) videoPlaceholder.classList.add('hidden');
-  if (videoPreviewContainer) videoPreviewContainer.classList.remove('hidden');
-  if (videoPreview) videoPreview.src = url;
+  document.getElementById('videoPlaceholder').classList.add('hidden');
+  document.getElementById('videoPreviewContainer').classList.remove('hidden');
+  document.getElementById('videoPreview').src = url;
 
   const infoEl = document.getElementById('videoCompressInfo');
   if (infoEl) {
@@ -1768,14 +1831,10 @@ function previewVideoFile(file) {
 function removeVideoPreview() {
   selectedVideoFile = null;
   removeVideoFlag = true;
-  const inputVideo = document.getElementById('inputVideo');
-  const videoPreview = document.getElementById('videoPreview');
-  const videoPreviewContainer = document.getElementById('videoPreviewContainer');
-  const videoPlaceholder = document.getElementById('videoPlaceholder');
-  if (inputVideo) inputVideo.value = '';
-  if (videoPreview) videoPreview.src = '';
-  if (videoPreviewContainer) videoPreviewContainer.classList.add('hidden');
-  if (videoPlaceholder) videoPlaceholder.classList.remove('hidden');
+  document.getElementById('inputVideo').value = '';
+  document.getElementById('videoPreview').src = '';
+  document.getElementById('videoPreviewContainer').classList.add('hidden');
+  document.getElementById('videoPlaceholder').classList.remove('hidden');
 
   const infoEl = document.getElementById('videoCompressInfo');
   if (infoEl) {
@@ -1784,6 +1843,7 @@ function removeVideoPreview() {
   }
 }
 
+// CLIPBOARD PASTE SUPPORT (Ctrl+V)
 function setupClipboardPaste() {
   window.addEventListener('paste', async (e) => {
     const modal = document.getElementById('tradeModal');
@@ -1803,6 +1863,7 @@ function setupClipboardPaste() {
   });
 }
 
+// DRAG AND DROP SETUP
 function setupDragAndDrop() {
   const imgDrop = document.getElementById('imageDropZone');
   const vidDrop = document.getElementById('videoDropZone');
@@ -1856,8 +1917,9 @@ function setupDragAndDrop() {
   }
 }
 
-// ----------------- SAVE / UPDATE TRADE -----------------
+// ----------------- SAVE / UPDATE TRADE (SUPABASE + CLOUD) -----------------
 
+// Uploads a media file directly to Supabase Storage bucket 'trade-media'
 async function uploadMediaToSupabaseStorage(file, folder = 'screenshots') {
   if (!supabaseClient || !currentUser) return null;
   try {
@@ -1905,6 +1967,7 @@ async function saveTrade(e) {
     const notesSwitch = document.getElementById('toggleNotesSwitch');
     const notes = (notesSwitch && notesSwitch.checked) ? document.getElementById('inputNotes').value.trim() : '';
 
+    // Calculate PnL
     let pnl = 1.0;
     if (result === 'LOSS') {
       pnl = -1.0;
@@ -1918,6 +1981,7 @@ async function saveTrade(e) {
       }
     }
 
+    // Handle Supabase Cloud Saving
     if (supabaseClient && currentUser && currentUser.id !== 'local_guest') {
       let screenshotUrl = null;
       let videoUrl = null;
@@ -1971,6 +2035,7 @@ async function saveTrade(e) {
       return;
     }
 
+    // Fallback: Local Server Saving or LocalStorage
     const formData = new FormData();
     formData.append('pair', pair);
     formData.append('direction', direction);
@@ -2003,6 +2068,7 @@ async function saveTrade(e) {
         return;
       }
     } catch (e) {
+      // LocalStorage mode if static
       const localTrade = {
         id: isEdit ? editId : 'trade_' + Date.now(),
         pair,
@@ -2074,6 +2140,7 @@ function openNewTradeModal() {
   syncCustomSelect('inputResult');
   updatePnlPreview();
 
+  // Reset Trade Notes toggle (default untoggled/hidden)
   const notesSwitch = document.getElementById('toggleNotesSwitch');
   const notesContainer = document.getElementById('notesContainer');
   if (notesSwitch) notesSwitch.checked = false;
@@ -2081,6 +2148,7 @@ function openNewTradeModal() {
   const notesInput = document.getElementById('inputNotes');
   if (notesInput) notesInput.value = '';
 
+  // Render dynamic user pair & R:R suggestions
   renderDynamicPairSuggestions();
   renderDynamicRRSuggestions();
 
@@ -2107,6 +2175,7 @@ function openEditTradeModal(trade) {
   initCustomSelects();
   syncCustomSelect('inputResult');
 
+  // Handle Notes Toggle state for existing trade
   const notesSwitch = document.getElementById('toggleNotesSwitch');
   const notesContainer = document.getElementById('notesContainer');
   const notesInput = document.getElementById('inputNotes');
@@ -2118,6 +2187,7 @@ function openEditTradeModal(trade) {
   }
   if (notesInput) notesInput.value = trade.notes || '';
 
+  // Render dynamic pair & R:R suggestions
   renderDynamicPairSuggestions();
   renderDynamicRRSuggestions();
 
@@ -2126,6 +2196,7 @@ function openEditTradeModal(trade) {
 
   updatePnlPreview();
 
+  // Existing image preview
   if (trade.screenshot) {
     document.getElementById('imagePlaceholder').classList.add('hidden');
     document.getElementById('imagePreviewContainer').classList.remove('hidden');
@@ -2158,6 +2229,7 @@ function openDetailModal(tradeId) {
   const isLoss = trade.result === 'LOSS';
   const isLong = trade.direction === 'LONG';
 
+  // Badges
   const dirBadge = document.getElementById('detailDirectionBadge');
   if (dirBadge) {
     dirBadge.innerText = isLong ? 'BUY' : 'SELL';
@@ -2181,8 +2253,10 @@ function openDetailModal(tradeId) {
   pnlBadge.innerText = `${pnlPrefix}${trade.pnl}R`;
   pnlBadge.className = `text-xs sm:text-sm font-bold font-mono ${isWin ? 'text-[#a6e22e]' : isLoss ? 'text-[#f92672]' : 'text-[#e6db74]'}`;
 
+  // Date
   document.getElementById('detailDateTime').innerText = `Logged on: ${trade.date || ''} ${trade.time || ''}`;
 
+  // Screenshot
   const ssSec = document.getElementById('detailScreenshotSection');
   if (trade.screenshot) {
     ssSec.classList.remove('hidden');
@@ -2192,6 +2266,7 @@ function openDetailModal(tradeId) {
     ssSec.classList.add('hidden');
   }
 
+  // Video
   const vidSec = document.getElementById('detailVideoSection');
   const vidPlayer = document.getElementById('detailVideoPlayer');
   if (trade.video) {
@@ -2203,6 +2278,7 @@ function openDetailModal(tradeId) {
     vidPlayer.src = '';
   }
 
+  // Notes
   document.getElementById('detailNotes').innerText = trade.notes || 'No trade notes recorded.';
 
   const modal = document.getElementById('detailModal');
@@ -2242,6 +2318,7 @@ async function deleteCurrentTrade() {
       return;
     }
 
+    // Local delete
     try {
       const res = await fetch(`/api/trades/${activeDetailTrade.id}`, { method: 'DELETE' });
       const data = await res.json();
@@ -2289,26 +2366,56 @@ function exportTradesJSON() {
   try {
     const jsonStr = JSON.stringify(dataToExport, null, 2);
     const dateStr = new Date().toISOString().split('T')[0];
-    const filename = `mesh_trades_${dateStr}.json`;
+    const filename = `strifare_trades_${dateStr}.json`;
 
-    const blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.style.display = 'none';
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
+    let blob;
+    try {
+      blob = new Blob([jsonStr], { type: 'application/json;charset=utf-8' });
+    } catch (e) {
+      const BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
+      const bb = new BlobBuilder();
+      bb.append(jsonStr);
+      blob = bb.getBlob('application/json;charset=utf-8');
+    }
 
-    setTimeout(() => {
-      if (document.body.contains(a)) document.body.removeChild(a);
-      setTimeout(() => { try { URL.revokeObjectURL(url); } catch (_) {} }, 60000);
-    }, 1000);
+    if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveOrOpenBlob(blob, filename);
+    } else {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+
+      // Keep object URL alive so Chrome download manager has ample time to complete reading the stream
+      setTimeout(() => {
+        if (document.body.contains(a)) {
+          document.body.removeChild(a);
+        }
+        setTimeout(() => {
+          try { URL.revokeObjectURL(url); } catch (_) {}
+        }, 60000);
+      }, 1000);
+    }
 
     showToast(`Exported ${dataToExport.length} trade${dataToExport.length > 1 ? 's' : ''} successfully!`, 'success');
   } catch (err) {
     console.error('Export error:', err);
-    showToast('Failed to export trades: ' + err.message, 'error');
+    try {
+      const jsonStr = JSON.stringify(dataToExport, null, 2);
+      const dateStr = new Date().toISOString().split('T')[0];
+      const a = document.createElement('a');
+      a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(jsonStr);
+      a.download = `strifare_trades_${dateStr}.json`;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { if (document.body.contains(a)) document.body.removeChild(a); }, 1000);
+      showToast(`Exported ${dataToExport.length} trade${dataToExport.length > 1 ? 's' : ''} successfully!`, 'success');
+    } catch (fallbackErr) {
+      showToast('Failed to export trades: ' + err.message, 'error');
+    }
   }
 }
 
@@ -2355,6 +2462,7 @@ async function handleImport(e) {
         return;
       }
 
+      // Local merge
       if (mode === 'replace') {
         allTrades = parsed;
       } else {
@@ -2374,7 +2482,7 @@ async function handleImport(e) {
   reader.readAsText(fileInput.files[0]);
 }
 
-// ----------------- TOASTS -----------------
+// ----------------- MONOKAI TOASTS -----------------
 
 function escapeHtml(str) {
   if (!str) return '';
@@ -2483,6 +2591,7 @@ function initCustomSelects() {
 
     syncCustomSelect(targetId);
 
+    // Toggle menu
     trigger.onclick = (e) => {
       e.stopPropagation();
       const isCurrentlyOpen = !menu.classList.contains('hidden') && !menu.classList.contains('dropdown-closing');
@@ -2497,12 +2606,14 @@ function initCustomSelects() {
 
         const inModal = cs.closest('#tradeModal, #detailModal');
         if (inModal) {
+          // Inside modal: position absolute relative to container to avoid modal transforms/filters breaking fixed coordinates
           menu.style.position = 'absolute';
           menu.style.top = 'calc(100% + 6px)';
           menu.style.left = '0';
           menu.style.width = '100%';
           menu.style.zIndex = '100';
         } else {
+          // Outside modal: position fixed to avoid overflow-x clipping in filter bar
           const rect = trigger.getBoundingClientRect();
           menu.style.position = 'fixed';
           menu.style.top = (rect.bottom + 6) + 'px';
@@ -2524,6 +2635,7 @@ function initCustomSelects() {
       }
     };
 
+    // Option click
     options.forEach((opt) => {
       opt.onclick = (e) => {
         e.stopPropagation();
@@ -2610,6 +2722,7 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Setup modal backdrop click dismissal
 function initModalBackdropDismiss() {
   ['tradeModal', 'detailModal', 'importModal'].forEach((id) => {
     const modal = document.getElementById(id);
