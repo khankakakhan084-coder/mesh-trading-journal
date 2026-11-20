@@ -191,6 +191,12 @@ body {
   will-change: transform, opacity;
 }
 
+#dataMenuDropdown:not(.hidden) {
+  animation: profileSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: top right;
+  will-change: transform, opacity;
+}
+
 /* Dropdown Menu Exit (Closing Animation) */
 .cs-menu.dropdown-closing,
 #pairPredictionsMenu.dropdown-closing {
@@ -198,7 +204,8 @@ body {
   pointer-events: none;
 }
 
-#userProfileDropdown.dropdown-closing {
+#userProfileDropdown.dropdown-closing,
+#dataMenuDropdown.dropdown-closing {
   animation: profileSlideOut 0.14s cubic-bezier(0.4, 0, 1, 1) forwards !important;
   pointer-events: none;
 }
@@ -249,7 +256,8 @@ body {
 
 /* Caret icon smooth 180 rotation */
 .cs-trigger svg,
-#profileDropdownCaret {
+#profileDropdownCaret,
+#dataMenuCaret {
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
 }
 
@@ -276,17 +284,20 @@ body {
   transform: scale(0.98);
 }
 
-/* User profile dropdown list items */
+/* User profile & data dropdown list items */
 #userProfileDropdown button:not(#copyUidBtn),
-#userProfileDropdown a {
+#userProfileDropdown a,
+#dataMenuDropdown button {
   transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.15s ease, color 0.15s ease !important;
 }
 #userProfileDropdown button:not(#copyUidBtn):hover,
-#userProfileDropdown a:hover {
+#userProfileDropdown a:hover,
+#dataMenuDropdown button:hover {
   transform: translateX(4px);
 }
 #userProfileDropdown button:active,
-#userProfileDropdown a:active {
+#userProfileDropdown a:active,
+#dataMenuDropdown button:active {
   transform: scale(0.97);
 }
 

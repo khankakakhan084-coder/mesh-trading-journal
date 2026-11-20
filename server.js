@@ -6,7 +6,7 @@ const fs = require('fs');
 const { exec } = require('child_process');
 
 const app = express();
-const DEFAULT_PORT = 3000;
+const PORT = parseInt(process.env.PORT || '3000', 10);
 
 // Directories
 const DATA_DIR = path.join(__dirname, 'data');
@@ -186,6 +186,8 @@ app.use('/uploads/videos', express.static(VIDEOS_DIR));
 // Page routes
 app.get(['/app', '/journal'], (req, res) => res.sendFile(path.join(__dirname, 'public', 'app.html')));
 app.get('/landing', (req, res) => res.sendFile(path.join(__dirname, 'public', 'landing.html')));
+app.get('/privacy', (req, res) => res.sendFile(path.join(__dirname, 'public', 'privacy.html')));
+app.get('/terms', (req, res) => res.sendFile(path.join(__dirname, 'public', 'terms.html')));
 
 // ----------------- API ROUTES -----------------
 
@@ -524,26 +526,13 @@ app.get('/api/stats', (req, res) => {
   }
 });
 
-// Dynamic Port Startup
-function startServer(port) {
-  const server = app.listen(port, () => {
-    console.log(`\n=============================================================`);
-    console.log(`   MESH TRADING JOURNAL IS RUNNING!`);
-    console.log(`   Open in Browser: http://localhost:${port}`);
-    console.log(`   Trades file:     ${TRADES_FILE}`);
-    console.log(`   Screenshots dir: ${IMAGES_DIR} (Auto WebP Compression)`);
-    console.log(`   Videos dir:      ${VIDEOS_DIR} (Auto H.264 MP4 Compression)`);
-    console.log(`=============================================================\n`);
-  });
-
-  server.on('error', (err) => {
-    if (err.code === 'EADDRINUSE') {
-      console.log(`Port ${port} is in use, trying port ${port + 1}...`);
-      startServer(port + 1);
-    } else {
-      console.error('Server error:', err);
-    }
-  });
-}
-
-startServer(DEFAULT_PORT);
+// Start server on 0.0.0.0:3000
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`\n=============================================================`);
+  console.log(`   MESH TRADING JOURNAL IS RUNNING!`);
+  console.log(`   Open in Browser: http://0.0.0.0:${PORT}`);
+  console.log(`   Trades file:     ${TRADES_FILE}`);
+  console.log(`   Screenshots dir: ${IMAGES_DIR} (Auto WebP Compression)`);
+  console.log(`   Videos dir:      ${VIDEOS_DIR} (Auto H.264 MP4 Compression)`);
+  console.log(`=============================================================\n`);
+});
