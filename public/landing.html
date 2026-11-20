@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#272822" />
+  
+  <title>Mesh Trading Journal | Trade Tracker &amp; Analytics for Forex, Crypto &amp; Stocks</title>
+  <meta name="title" content="Mesh Trading Journal | Trade Tracker &amp; Analytics for Forex, Crypto &amp; Stocks" />
+  <meta name="description" content="Mesh Trading Journal is the ultimate free trade logger for Forex, Crypto, and Stock traders. Calculate R-multiples, analyze win rates, log chart screenshots, and master your trading edge." />
+  <meta name="keywords" content="Mesh Trading Journal, Mesh Journal, trading journal, forex trade journal, crypto trading journal, free trading journal, trade tracker, risk reward calculator, trading log, R multiples, win rate tracker, stock trading journal" />
+  <meta name="author" content="Mesh" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://adil-trading-journal.vercel.app/landing.html" />
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://adil-trading-journal.vercel.app/landing.html" />
+  <meta property="og:site_name" content="Mesh Trading Journal" />
+  <meta property="og:title" content="Mesh Trading Journal | Trade Tracker &amp; Analytics" />
+  <meta property="og:description" content="The free, modern trading journal for serious Forex, Crypto, and Stock traders. Auto R-multiples, win rate tracking, and media attachments." />
+  <meta property="og:image" content="https://adil-trading-journal.vercel.app/logo.png" />
+
+  <!-- Twitter Card SEO -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mesh Trading Journal" />
+  <meta name="twitter:description" content="Track your trading edge with Mesh Trading Journal. Real-time R:R calculation, win rate, and media attachments." />
+  <meta name="twitter:image" content="https://adil-trading-journal.vercel.app/logo.png" />
+
+  <!-- Site Name for Google Search & Browsers -->
+  <meta name="site_name" content="Mesh Trading Journal" />
+  <meta name="application-name" content="Mesh Trading Journal" />
+  <meta name="apple-mobile-web-app-title" content="Mesh Trading Journal" />
+
+  <!-- Primary Dedicated WebSite Schema for Google Search Site Name -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Mesh Trading Journal",
+    "alternateName": [
+      "Mesh Journal",
+      "Mesh Trading",
+      "Mesh",
+      "Adil Trading Journal"
+    ],
+    "url": "https://adil-trading-journal.vercel.app/"
+  }
+  </script>
+
+  <!-- Favicon (Google Search Compliant: 48px Multiples & Root .ico) -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=5.0">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=5.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5.0">
+  <link rel="manifest" href="/manifest.json?v=5.0">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            monoBg: '#272822',
+            monoCard: '#1e1f1c',
+            monoCardElevated: '#2e2f28',
+            monoBorder: '#3e3d32',
+            monoBorderLight: '#49483e',
+            monoFg: '#F8F8F2',
+            monoMuted: '#75715e',
+            monoGreen: '#a6e22e',
+            monoPink: '#f92672',
+            monoCyan: '#66d9ef',
+            monoYellow: '#e6db74',
+            monoOrange: '#fd971f',
+            monoPurple: '#ae81ff',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter, JetBrains Mono & Orbitron (Logo Style) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://adil-trading-journal.vercel.app/#website",
+        "url": "https://adil-trading-journal.vercel.app/",
+        "name": "Mesh Trading Journal",
+        "alternateName": ["Mesh Journal", "Mesh", "Adil Trading Journal"],
+        "description": "Professional web-based trading journal for Forex, Crypto, and Stock traders.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Mesh Trading Journal",
+          "url": "https://adil-trading-journal.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://adil-trading-journal.vercel.app/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Mesh Trading Journal",
+        "url": "https://adil-trading-journal.vercel.app/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "description": "Professional web-based trading journal designed for crypto, forex, and stock market traders to record, review, and analyze trade performance with auto-calculated R:R multiples and media uploads.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Mesh Trading Journal free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Mesh Trading Journal is 100% free with unlimited trade entries, real-time analytics, and cloud sync."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Mesh Journal calculate R:R and net R?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entering entry, stop loss, and exit price automatically calculates your Risk:Reward ratio and cumulative R-multiple for Long and Short trades."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export or backup my trade logs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You retain 100% data ownership. Export or import your trade logs anytime as standard JSON from your profile menu."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .grid-bg {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-monoBg text-monoFg min-h-screen flex flex-col antialiased selection:bg-monoPink selection:text-white">
+
+  <!-- ==================== STICKY TOP NAVBAR ==================== -->
+  <header id="landingHeader" class="sticky top-0 z-50 bg-monoBg/90 backdrop-blur-md border-b border-monoBorder transition-transform duration-300 ease-in-out will-change-transform">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Logo & Brand Name -->
+      <a href="/" class="flex items-center space-x-3 group">
+        <img
+          src="/logo.png"
+          alt="Mesh Trading Journal Logo"
+          class="h-8 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+        />
+        <span class="text-base sm:text-lg flex items-center brand-logo-title">
+          <span class="brand-mesh-text">MESH</span>
+          <span class="brand-journal-text ml-1.5">JOURNAL</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-mono font-medium text-monoMuted">
+        <a href="#features" class="hover:text-monoGreen transition">Features</a>
+        <a href="#analytics" class="hover:text-monoCyan transition">Analytics</a>
+        <a href="#about" class="hover:text-monoYellow transition">About</a>
+        <a href="#faq" class="hover:text-monoPink transition">FAQ</a>
+      </nav>
+
+      <!-- Launch App CTA -->
+      <div class="flex items-center space-x-3">
+        <a
+          href="/app"
+          class="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold font-mono text-[#272822] bg-monoGreen hover:bg-[#b8f041] shadow-lg shadow-monoGreen/20 transition active:scale-95 flex items-center space-x-2"
+        >
+          <span>Launch App</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="relative pt-12 sm:pt-20 pb-16 sm:pb-24 grid-bg overflow-hidden border-b border-monoBorder">
+    <!-- Glow effect behind hero -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-monoGreen/10 blur-[120px] pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+      
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-mono text-monoFg leading-tight sm:leading-none">
+        Master Your Trading Edge. <br />
+        <span class="text-monoGreen">Measure Every R.</span>
+      </h1>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4">
+        <a
+          href="/app"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-xl font-bold font-mono text-sm text-[#272822] bg-monoGreen hover:bg-[#b8f041] shadow-xl shadow-monoGreen/20 transition transform hover:-translate-y-0.5 active:scale-95 flex items-center justify-center space-x-2.5"
+        >
+          <span>Open Trading Journal</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+
+        <a
+          href="#features"
+          class="w-full sm:w-auto px-6 py-3.5 rounded-xl font-semibold font-mono text-xs sm:text-sm text-monoFg bg-monoCard hover:bg-monoCardElevated border border-monoBorder transition"
+        >
+          Explore Features &darr;
+        </a>
+      </div>
+
+    </div>
+
+    <!-- ==================== INTERACTIVE MOCKUP SHOWCASE ==================== -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-16 relative z-10" id="analytics">
+      <div class="bg-monoCard border border-monoBorder rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-8 relative overflow-hidden ring-1 ring-white/5">
+        
+        <!-- Mockup Window Bar -->
+        <div class="flex items-center justify-between pb-4 sm:pb-6 border-b border-monoBorder mb-6">
+          <div class="flex items-center space-x-2">
+            <div class="w-3 h-3 rounded-full bg-monoPink"></div>
+            <div class="w-3 h-3 rounded-full bg-monoYellow"></div>
+            <div class="w-3 h-3 rounded-full bg-monoGreen"></div>
+            <span class="text-xs font-mono text-monoMuted ml-2">mesh-trading-terminal.monokai</span>
+          </div>
+          <div class="text-[11px] font-mono text-monoGreen bg-monoGreen/10 border border-monoGreen/30 px-2.5 py-0.5 rounded-full">
+            LIVE PREVIEW
+          </div>
+        </div>
+
+        <!-- Simulated KPI Cards -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+          <div class="bg-monoBg border border-monoBorder rounded-xl p-3 sm:p-4">
+            <div class="text-[10px] sm:text-xs font-mono font-semibold text-monoMuted mb-1">TOTAL TRADES</div>
+            <div class="text-xl sm:text-3xl font-bold font-mono text-monoFg">48</div>
+            <div class="text-[10px] sm:text-[11px] text-monoMuted font-mono mt-1">Synced to your account</div>
+          </div>
+
+          <div class="bg-monoBg border border-monoBorder rounded-xl p-3 sm:p-4">
+            <div class="text-[10px] sm:text-xs font-mono font-semibold text-monoMuted mb-1">WIN RATE</div>
+            <div class="text-xl sm:text-3xl font-bold font-mono text-monoGreen">68.8%</div>
+            <div class="text-[10px] sm:text-[11px] text-monoMuted font-mono mt-1 flex items-center space-x-1.5">
+              <span class="text-monoGreen font-semibold">33 W</span>
+              <span>&bull;</span>
+              <span class="text-monoPink font-semibold">12 L</span>
+              <span>&bull;</span>
+              <span class="text-monoYellow font-semibold">3 BE</span>
+            </div>
+          </div>
+
+          <div class="bg-monoBg border border-monoBorder rounded-xl p-3 sm:p-4">
+            <div class="text-[10px] sm:text-xs font-mono font-semibold text-monoMuted mb-1">NET RESULT (R)</div>
+            <div class="text-xl sm:text-3xl font-bold font-mono text-monoFg">+38.5R</div>
+            <div class="text-[10px] sm:text-[11px] text-monoMuted font-mono mt-1">Cumulative R multiples</div>
+          </div>
+
+          <div class="bg-monoBg border border-monoBorder rounded-xl p-3 sm:p-4">
+            <div class="text-[10px] sm:text-xs font-mono font-semibold text-monoMuted mb-1">PROFIT FACTOR</div>
+            <div class="text-xl sm:text-3xl font-bold font-mono text-monoOrange">2.94</div>
+            <div class="text-[10px] sm:text-[11px] text-monoMuted font-mono mt-1">Gross Wins / Gross Loss</div>
+          </div>
+        </div>
+
+        <!-- Simulated Equity Graph Visualization -->
+        <div class="bg-monoBg border border-monoBorder rounded-xl p-4 sm:p-6 mb-6">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold font-mono text-monoFg">EQUITY GROWTH CURVE</span>
+            <span class="text-[10px] font-mono text-monoGreen bg-monoGreen/10 px-2 py-0.5 rounded">Cumulative +38.5R</span>
+          </div>
+          <!-- Stylized SVG curve -->
+          <svg class="w-full h-32 sm:h-44 stroke-monoGreen" viewBox="0 0 600 120" fill="none" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="curveGradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#a6e22e" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#a6e22e" stop-opacity="0.0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,110 Q50,105 100,95 T200,80 T300,55 T400,45 T500,20 T600,10 L600,120 L0,120 Z" fill="url(#curveGradient)" />
+            <path d="M0,110 Q50,105 100,95 T200,80 T300,55 T400,45 T500,20 T600,10" stroke="#a6e22e" stroke-width="3" stroke-linecap="round" fill="none" />
+          </svg>
+        </div>
+
+        <!-- Sample Logged Trades Rows -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between text-xs font-mono text-monoMuted px-2 pb-1">
+            <span>RECENT EXECUTIONS</span>
+            <span>VERIFIED ON-CHAIN &amp; CLOUD</span>
+          </div>
+
+          <div class="bg-monoBg border border-monoBorder rounded-xl p-3 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center space-x-3">
+              <span class="px-2 py-0.5 rounded bg-monoGreen/20 text-monoGreen font-bold">LONG</span>
+              <span class="font-bold text-monoFg">EUR/USD</span>
+              <span class="hidden sm:inline text-monoMuted">Break &amp; Retest 15m</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <span class="text-monoMuted hidden md:inline">1:2.50 R:R</span>
+              <span class="text-monoGreen font-bold">+2.50R WIN</span>
+            </div>
+          </div>
+
+          <div class="bg-monoBg border border-monoBorder rounded-xl p-3 flex items-center justify-between text-xs font-mono">
+            <div class="flex items-center space-x-3">
+              <span class="px-2 py-0.5 rounded bg-monoPink/20 text-monoPink font-bold">SHORT</span>
+              <span class="font-bold text-monoFg">BTC/USDT</span>
+              <span class="hidden sm:inline text-monoMuted">Liquidity Sweep</span>
+            </div>
+            <div class="flex items-center space-x-4">
+              <span class="text-monoMuted hidden md:inline">1:3.20 R:R</span>
+              <span class="text-monoGreen font-bold">+3.20R WIN</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CORE FEATURES ==================== -->
+  <section class="py-16 sm:py-24 border-b border-monoBorder" id="features">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <h2 class="text-xs sm:text-sm font-bold font-mono text-monoGreen uppercase tracking-widest">Everything You Need</h2>
+        <p class="text-2xl sm:text-4xl font-bold font-mono text-monoFg">
+          Engineered for Pure Trading Performance
+        </p>
+        <p class="text-sm text-monoMuted">
+          Forget clunky Excel spreadsheets and bloated paid trackers. Mesh Journal gives you everything essential to build an institutional edge.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Feature 1: Automated R:R -->
+        <div class="bg-monoCard border border-monoBorder rounded-2xl p-6 space-y-3.5 hover:border-monoGreen/40 hover:bg-[#23241f] transition group">
+          <div class="w-11 h-11 rounded-xl bg-monoCardElevated border border-monoBorder flex items-center justify-center text-monoGreen group-hover:border-monoGreen/50 group-hover:bg-monoGreen/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-base font-bold font-mono text-monoFg">Automated R:R Multipliers</h3>
+          <p class="text-xs text-monoMuted leading-relaxed">
+            Stop doing manual math. Enter Entry, Stop Loss, and Exit Price: Mesh Journal instantly computes your exact Risk-to-Reward ratio and cumulative net R return.
+          </p>
+        </div>
+
+        <!-- Feature 2: Live Equity Curve -->
+        <div class="bg-monoCard border border-monoBorder rounded-2xl p-6 space-y-3.5 hover:border-monoGreen/40 hover:bg-[#23241f] transition group">
+          <div class="w-11 h-11 rounded-xl bg-monoCardElevated border border-monoBorder flex items-center justify-center text-monoGreen group-hover:border-monoGreen/50 group-hover:bg-monoGreen/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+          <h3 class="text-base font-bold font-mono text-monoFg">Live Equity Growth Curve</h3>
+          <p class="text-xs text-monoMuted leading-relaxed">
+            Visualize your compounding curve trade by trade. Spot drawdown phases, evaluate strategy consistency, and build long-term psychological confidence.
+          </p>
+        </div>
+
+        <!-- Feature 3: Clipboard Proof -->
+        <div class="bg-monoCard border border-monoBorder rounded-2xl p-6 space-y-3.5 hover:border-monoGreen/40 hover:bg-[#23241f] transition group">
+          <div class="w-11 h-11 rounded-xl bg-monoCardElevated border border-monoBorder flex items-center justify-center text-monoGreen group-hover:border-monoGreen/50 group-hover:bg-monoGreen/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <h3 class="text-base font-bold font-mono text-monoFg">Instant Clipboard Proof (Ctrl+V)</h3>
+          <p class="text-xs text-monoMuted leading-relaxed">
+            Take a screenshot of TradingView, click the log form, and press Ctrl+V. Your chart screenshot is attached instantly. Also supports screen recording video drops!
+          </p>
+        </div>
+
+        <!-- Feature 4: Cloud Sync -->
+        <div class="bg-monoCard border border-monoBorder rounded-2xl p-6 space-y-3.5 hover:border-monoGreen/40 hover:bg-[#23241f] transition group">
+          <div class="w-11 h-11 rounded-xl bg-monoCardElevated border border-monoBorder flex items-center justify-center text-monoGreen group-hover:border-monoGreen/50 group-hover:bg-monoGreen/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+          </div>
+          <h3 class="text-base font-bold font-mono text-monoFg">Supabase Cloud Sync</h3>
+          <p class="text-xs text-monoMuted leading-relaxed">
+            Your trade data is safely synchronized to Supabase Cloud infrastructure with Row-Level Security. Log trades on your desktop and view them on your laptop or phone.
+          </p>
+        </div>
+
+        <!-- Feature 5: Data Ownership -->
+        <div class="bg-monoCard border border-monoBorder rounded-2xl p-6 space-y-3.5 hover:border-monoGreen/40 hover:bg-[#23241f] transition group">
+          <div class="w-11 h-11 rounded-xl bg-monoCardElevated border border-monoBorder flex items-center justify-center text-monoGreen group-hover:border-monoGreen/50 group-hover:bg-monoGreen/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+          </div>
+          <h3 class="text-base font-bold font-mono text-monoFg">Total Data Ownership</h3>
+          <p class="text-xs text-monoMuted leading-relaxed">
+            You own your trading history. Export your entire journal to clean JSON with a single click, or import backups whenever you need. No vendor lock-in.
+          </p>
+        </div>
+
+        <!-- Feature 6: Distraction-Free UI -->
+        <div class="bg-monoCard border border-monoBorder rounded-2xl p-6 space-y-3.5 hover:border-monoGreen/40 hover:bg-[#23241f] transition group">
+          <div class="w-11 h-11 rounded-xl bg-monoCardElevated border border-monoBorder flex items-center justify-center text-monoGreen group-hover:border-monoGreen/50 group-hover:bg-monoGreen/10 transition">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+          </div>
+          <h3 class="text-base font-bold font-mono text-monoFg">Distraction-Free Monokai UI</h3>
+          <p class="text-xs text-monoMuted leading-relaxed">
+            Designed in pure Monokai dark mode to prevent eye strain during high-intensity trading hours. Fast, responsive, and stripped of unnecessary clutter.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT & FAQ SECTION (From User's img1) ==================== -->
+  <section class="py-16 sm:py-24 border-b border-monoBorder bg-monoCard/40" id="about">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
+        
+        <!-- About Mesh Trading Journal Column -->
+        <article class="space-y-4">
+          <div class="flex items-center space-x-2 text-monoGreen font-mono text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-monoGreen"></span>
+            <span>About The Platform</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold font-mono text-monoFg">
+            ABOUT MESH TRADING JOURNAL
+          </h2>
+
+          <p class="text-xs sm:text-sm text-monoMuted leading-relaxed font-sans">
+            <strong class="text-monoFg font-semibold">Mesh Trading Journal</strong> is engineered for serious retail, prop firm, and professional traders. Track every execution across Forex pairs (EUR/USD, GBP/USD, USD/JPY, Gold/XAUUSD), Cryptocurrencies (Bitcoin, Ethereum, Solana), Stocks, and Indices.
+          </p>
+
+          <div class="space-y-3 pt-2 font-mono text-xs">
+            <div class="flex items-start space-x-3 p-3 rounded-xl bg-monoBg border border-monoBorder">
+              <svg class="w-4 h-4 text-monoGreen shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <strong class="text-monoFg font-semibold">Automated R:R Multipliers:</strong>
+                <span class="text-monoMuted"> Auto-computes your Risk-to-Reward and net R-gain per trade without manual spreadsheet formulas.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 rounded-xl bg-monoBg border border-monoBorder">
+              <svg class="w-4 h-4 text-monoGreen shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <strong class="text-monoFg font-semibold">Live Equity Curve:</strong>
+                <span class="text-monoMuted"> Real-time visual tracking of cumulative R-returns and drawdown to keep emotional impulses in check.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 rounded-xl bg-monoBg border border-monoBorder">
+              <svg class="w-4 h-4 text-monoGreen shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <strong class="text-monoFg font-semibold">Media Proof Attachments:</strong>
+                <span class="text-monoMuted"> Paste chart screenshots (Ctrl+V) or drag-and-drop video recordings to review execution quality.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 rounded-xl bg-monoBg border border-monoBorder">
+              <svg class="w-4 h-4 text-monoGreen shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <strong class="text-monoFg font-semibold">Instant Cloud Sync:</strong>
+                <span class="text-monoMuted"> Fast, encrypted, cross-device synchronization powered by Supabase infrastructure.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Frequently Asked Questions Column -->
+        <article class="space-y-4" id="faq">
+          <div class="flex items-center space-x-2 text-monoCyan font-mono text-xs font-bold uppercase tracking-wider">
+            <span class="w-2 h-2 rounded-full bg-monoCyan"></span>
+            <span>Got Questions?</span>
+          </div>
+
+          <h2 class="text-2xl sm:text-3xl font-bold font-mono text-monoFg">
+            FREQUENTLY ASKED QUESTIONS
+          </h2>
+
+          <div class="space-y-3 pt-2">
+            
+            <details class="bg-monoBg border border-monoBorder rounded-xl p-4 cursor-pointer group transition">
+              <summary class="font-bold text-monoFg text-xs sm:text-sm font-mono group-hover:text-monoGreen transition list-none flex items-center justify-between">
+                <span>Is Mesh Trading Journal free?</span>
+                <span class="text-monoGreen text-base font-bold ml-3 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <p class="mt-3 text-xs text-monoMuted leading-relaxed font-sans">
+                Yes! Mesh Trading Journal is 100% free with unlimited trade entries, real-time analytics, and cloud sync. There are no paywalls, hidden fees, or recurring subscriptions.
+              </p>
+            </details>
+
+            <details class="bg-monoBg border border-monoBorder rounded-xl p-4 cursor-pointer group transition">
+              <summary class="font-bold text-monoFg text-xs sm:text-sm font-mono group-hover:text-monoGreen transition list-none flex items-center justify-between">
+                <span>How does Mesh Journal calculate R:R and net R?</span>
+                <span class="text-monoGreen text-base font-bold ml-3 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <p class="mt-3 text-xs text-monoMuted leading-relaxed font-sans">
+                By entering your entry price, stop loss, and exit price, Mesh Journal calculates your precise risk-to-reward ratio and cumulative R-multiple return for both Long and Short setups across any asset.
+              </p>
+            </details>
+
+            <details class="bg-monoBg border border-monoBorder rounded-xl p-4 cursor-pointer group transition">
+              <summary class="font-bold text-monoFg text-xs sm:text-sm font-mono group-hover:text-monoGreen transition list-none flex items-center justify-between">
+                <span>Can I export or backup my trade logs?</span>
+                <span class="text-monoGreen text-base font-bold ml-3 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <p class="mt-3 text-xs text-monoMuted leading-relaxed font-sans">
+                Yes. You retain 100% data ownership. Export or import your trade logs anytime as standard JSON directly from your user profile menu.
+              </p>
+            </details>
+
+            <details class="bg-monoBg border border-monoBorder rounded-xl p-4 cursor-pointer group transition">
+              <summary class="font-bold text-monoFg text-xs sm:text-sm font-mono group-hover:text-monoGreen transition list-none flex items-center justify-between">
+                <span>Which markets does Mesh Trading Journal support?</span>
+                <span class="text-monoGreen text-base font-bold ml-3 group-open:rotate-45 transition-transform">+</span>
+              </summary>
+              <p class="mt-3 text-xs text-monoMuted leading-relaxed font-sans">
+                Mesh supports all major financial markets including Forex (EUR/USD, GBP/USD, USD/JPY, Gold/XAUUSD), Cryptocurrencies (Bitcoin, Ethereum, Solana), Stocks (US/Global Equities), and Indices (NAS100, US30, SPX500).
+              </p>
+            </details>
+
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CALL TO ACTION ==================== -->
+  <section class="py-16 sm:py-20 text-center relative overflow-hidden border-b border-monoBorder">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
+      <img src="/logo.png" alt="Mesh Logo" class="h-12 w-auto mx-auto object-contain opacity-90" />
+      <h2 class="text-2xl sm:text-4xl font-extrabold font-mono text-monoFg">
+        Ready to take your trading edge seriously?
+      </h2>
+      <p class="text-xs sm:text-sm text-monoMuted max-w-lg mx-auto font-sans leading-relaxed">
+        Start logging trades in under 30 seconds. Free forever.
+      </p>
+      <div>
+        <a
+          href="/app"
+          class="inline-flex items-center space-x-2.5 px-8 py-3.5 rounded-xl font-bold font-mono text-sm text-[#272822] bg-monoGreen hover:bg-[#b8f041] shadow-xl shadow-monoGreen/20 transition transform hover:-translate-y-0.5 active:scale-95"
+        >
+          <span>Launch Mesh Journal Now</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full bg-[#1e1f1c] py-10 text-monoMuted font-mono text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-monoBorder">
+        <div class="flex items-center space-x-2.5">
+          <img src="/logo.png" alt="Mesh Trading Journal" class="h-7 w-auto object-contain" />
+          <span class="brand-logo-title flex items-center text-sm"><span class="brand-mesh-text">MESH</span> <span class="brand-journal-text ml-1.5">TRADING JOURNAL</span></span>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs">
+          <a href="/app" class="hover:text-monoGreen transition">Dashboard</a>
+          <a href="/privacy.html" class="hover:text-monoGreen transition">Privacy Policy</a>
+          <a href="/terms.html" class="hover:text-monoGreen transition">Terms of Service</a>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-monoMuted/80">
+        <p>&copy; 2026 Mesh Trading Journal. All rights reserved.</p>
+        <p>Engineered for disciplined traders.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Smart Scroll Header: Disappears on scroll down, reappears on scroll up -->
+  <script>
+    (function() {
+      const header = document.getElementById('landingHeader');
+      if (!header) return;
+
+      let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
+      let ticking = false;
+      const scrollThreshold = 8;
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (currentScrollY > 70) {
+              if (currentScrollY > lastScrollY + scrollThreshold) {
+                // Scrolling down -> hide navbar
+                header.classList.add('-translate-y-full');
+              } else if (currentScrollY < lastScrollY - scrollThreshold) {
+                // Scrolling up -> show navbar
+                header.classList.remove('-translate-y-full');
+              }
+            } else {
+              // At top -> show navbar
+              header.classList.remove('-translate-y-full');
+            }
+
+            lastScrollY = Math.max(0, currentScrollY);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
